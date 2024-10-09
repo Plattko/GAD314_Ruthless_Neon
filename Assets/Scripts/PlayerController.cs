@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector2 lastMoveDir;
     private bool isFacingRight = true;
 
+    private bool canDash = true;
+    private bool isDashing = false;
+    [SerializeField] private float dashDistance = 10f;
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashCooldown = 1.0f;
+
     [Header("Sprite")]
     [SerializeField] SpriteRenderer spriteRenderer;
 
@@ -26,6 +32,12 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        //if (isDashing) { return; }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isDashing) { return; }
         Move();
         Flip();
     }
@@ -43,6 +55,17 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, idleSlow);
         }
+    }
+
+    private IEnumerator Dash() // TODO: Make player unable to be damaged when dashing
+    {
+        canDash = false;
+        isDashing = true;
+        rb.velocity = moveInput * (dashDistance / dashDuration);
+        yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 
     // ---------------------------------
@@ -64,5 +87,13 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
-    }    
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (context.performed && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+    }
 }

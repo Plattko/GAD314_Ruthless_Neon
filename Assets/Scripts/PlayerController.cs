@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,15 +20,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1.0f;
 
+    [Header("Shooting")]
+    [SerializeField] private Transform aimPivot;
+    private Vector3 aimPos;
+
     [Header("Sprite")]
     [SerializeField] SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
         //if (isDashing) { return; }
@@ -37,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GetAimPosition();
+
         if (isDashing) { return; }
         Move();
         Flip();
@@ -66,6 +71,15 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+    //-------------------------------------------------------------
+    // AIMING
+    //-------------------------------------------------------------
+    private void GetAimPosition()
+    {
+        Vector3 aimPos = Mouse3D.GetMouseWorldPosition();
+        aimPivot.LookAt(new Vector3(aimPos.x, aimPivot.position.y, aimPos.z), Vector3.up);
     }
 
     // ---------------------------------

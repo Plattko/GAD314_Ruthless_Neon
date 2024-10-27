@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 1.0f;
 
     [Header("Shooting")]
+    [SerializeField] private WeaponManager weaponManager;
     [SerializeField] private Transform aimPivot;
+    [SerializeField] private Transform gunEndPos;
     private Vector3 aimPos;
 
     [Header("Sprite")]
@@ -74,12 +76,13 @@ public class PlayerController : MonoBehaviour
     }
 
     //-------------------------------------------------------------
-    // AIMING
+    // SHOOTING
     //-------------------------------------------------------------
     private void GetAimPosition()
     {
-        Vector3 aimPos = Mouse3D.GetMouseWorldPosition();
-        aimPivot.LookAt(new Vector3(aimPos.x, aimPivot.position.y, aimPos.z), Vector3.up);
+        Vector3 mousePos = Mouse3D.GetMouseWorldPosition();
+        aimPos = new Vector3(mousePos.x, aimPivot.position.y, mousePos.z);
+        aimPivot.LookAt(aimPos, Vector3.up);
     }
 
     // ---------------------------------
@@ -108,6 +111,14 @@ public class PlayerController : MonoBehaviour
         if (context.performed && canDash)
         {
             StartCoroutine(Dash());
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            weaponManager.Shoot(transform.position, gunEndPos.position, aimPos);
         }
     }
 }

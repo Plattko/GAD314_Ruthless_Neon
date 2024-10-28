@@ -5,12 +5,13 @@ using UnityEngine;
 public class TestTarget : MonoBehaviour
 {
     [SerializeField] private Damageable damageable;
-    [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private int minHealth = 3;
+    [SerializeField] private int maxHealth = 5;
     [SerializeField] private float curHealth = 10f;
 
     private void Start()
     {
-        curHealth = maxHealth;
+        curHealth = Random.Range(minHealth, maxHealth);
     }
 
     private void OnEnable()

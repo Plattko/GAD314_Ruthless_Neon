@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,15 +20,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1.0f;
 
+    [Header("Shooting")]
+    [SerializeField] private WeaponManager weaponManager;
+    [SerializeField] private Transform aimPivot;
+    [SerializeField] private Transform gunEndPos;
+    private Vector3 aimPos;
+
     [Header("Sprite")]
     [SerializeField] SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
         //if (isDashing) { return; }
@@ -37,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GetAimPosition();
+
         if (isDashing) { return; }
         Move();
         Flip();
@@ -68,6 +75,16 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
 
+    //-------------------------------------------------------------
+    // SHOOTING
+    //-------------------------------------------------------------
+    private void GetAimPosition()
+    {
+        Vector3 mousePos = Mouse3D.GetMouseWorldPosition();
+        aimPos = new Vector3(mousePos.x, aimPivot.position.y, mousePos.z);
+        aimPivot.LookAt(aimPos, Vector3.up);
+    }
+
     // ---------------------------------
     // SPRITE & ANIMATIONS
     // ---------------------------------
@@ -94,6 +111,14 @@ public class PlayerController : MonoBehaviour
         if (context.performed && canDash)
         {
             StartCoroutine(Dash());
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            weaponManager.Shoot(transform.position, gunEndPos.position, aimPos);
         }
     }
 }

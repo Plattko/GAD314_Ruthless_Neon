@@ -42,9 +42,20 @@ public class WeaponManager : MonoBehaviour
 
     public void Shoot()
     {
-        Transform bullet = Instantiate(bulletPrefab, gunEndPos.position, Quaternion.identity);
-        Vector3 shootDir = (aimPos - transform.position).normalized;
-        bullet.GetComponent<Bullet>().Initialise(shootDir);
+        switch (equippedGun)
+        {
+            case EquippedGun.Pistol:
+                Transform bullet = Instantiate(bulletPrefab, gunEndPos.position, Quaternion.identity);
+                Vector3 shootDir = (aimPos - transform.position).normalized;
+                bullet.GetComponent<Bullet>().Initialise(shootDir);
+                break;
+
+            case EquippedGun.Weapon:
+                break;
+
+            default:
+                break;
+        }
     }
 
     //-------------------------------------------------------------
@@ -52,7 +63,6 @@ public class WeaponManager : MonoBehaviour
     //-------------------------------------------------------------
     public void SwapWeapon()
     {
-        // Temp: Testing animations
         switch (equippedGun)
         {
             case EquippedGun.Pistol:
@@ -60,11 +70,13 @@ public class WeaponManager : MonoBehaviour
                 animator.SetBool("isHoldingPistol", false);
                 animator.SetBool("isHoldingWeapon", true);
                 break;
+
             case EquippedGun.Weapon:
                 equippedGun = EquippedGun.Pistol;
                 animator.SetBool("isHoldingPistol", true);
                 animator.SetBool("isHoldingWeapon", false);
                 break;
+
             default:
                 break;
         }

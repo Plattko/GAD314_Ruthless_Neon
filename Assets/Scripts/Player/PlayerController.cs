@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveInput;
     [SerializeField] private float moveSpeed = 3.0f;
     [SerializeField] private float idleSlow = 0.9f;
+    private float curSpeed;
 
     [HideInInspector] public Vector2 lastMoveDir;
     private bool isFacingRight = true;
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Sprite & Animation")]
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer pistolSprite;
+    [SerializeField] private Transform weaponHolder;
     [SerializeField] private Animator animator;
 
     private void Start()
@@ -53,7 +56,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, idleSlow);
         }
 
-        animator.SetFloat("Speed", Mathf.Abs(new Vector2(rb.velocity.x, rb.velocity.z).magnitude));
+        curSpeed = Mathf.Abs(new Vector2(rb.velocity.x, rb.velocity.z).magnitude);
+        animator.SetFloat("Speed", curSpeed);
     }
 
     private IEnumerator Dash() // TODO: Make player unable to be damaged when dashing
@@ -85,6 +89,24 @@ public class PlayerController : MonoBehaviour
         //}
 
         spriteRenderer.flipX = !isFacingRight;
+
+        if (isFacingRight)
+        {
+            weaponHolder.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            weaponHolder.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (curSpeed > 0.01f)
+        {
+            pistolSprite.enabled = true;
+        }
+        else
+        {
+            pistolSprite.enabled = false;
+        }
     }
 
     //-------------------------------------------------------------

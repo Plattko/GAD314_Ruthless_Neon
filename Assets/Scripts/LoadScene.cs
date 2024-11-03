@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class LoadScene : MonoBehaviour
 {
-    void LoadGarage()
+    public void LoadAlleyway()
     {
-
+        SceneManager.LoadScene("AlleywayLevel");
     }
 
-    void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }

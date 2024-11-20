@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class WeaponSpawnTest : MonoBehaviour
 {
-    public SMG origSMGScriptableObject;
-    private SMG spawnedSMG;
+    [SerializeField] private Transform pickupWeaponPrefab;
+    //[SerializeField] private SMG origSMGScriptableObject;
+    [SerializeField] private PickupWeapon[] origPickupWeaponSOs;
+    private Transform pickupWeapon;
+    private PickupWeapon spawnedPickupWeaponSO;
 
-    private void Start()
+    private float minDropForceX = 2f;
+    private float maxDropForceX = 3f;
+    private float dropForceY = 2f;
+
+    private void Update()
     {
-        spawnedSMG = Instantiate(origSMGScriptableObject);
-        spawnedSMG.CreateSMG();
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SpawnWeapon();
+        }
+    }
+
+    private void SpawnWeapon()
+    {
+        pickupWeapon = Instantiate(pickupWeaponPrefab, transform.position, Quaternion.identity);
+        //spawnedSMG = Instantiate(origSMGScriptableObject);
+        spawnedPickupWeaponSO = Instantiate(origPickupWeaponSOs[Random.Range(0, origPickupWeaponSOs.Length)]);
+        spawnedPickupWeaponSO.CreateWeapon();
         //spawnedSMG.RarityTest();
+
+        Vector2 dropForceX = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Random.Range(minDropForceX, maxDropForceX);
+        Vector3 dropForce = new Vector3(dropForceX.x, dropForceY, dropForceX.y);
+        pickupWeapon.GetComponent<Rigidbody>().AddForce(dropForce, ForceMode.Impulse);
+        pickupWeapon.GetComponent<SpriteRenderer>().sprite = spawnedPickupWeaponSO.weaponSprite;
     }
 }

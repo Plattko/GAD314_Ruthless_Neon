@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 894b1bed38fe0f846a61e1c9b6ea0fa2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e07eef218a155b4ba6560d63e0d1c79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   rb: {fileID: 6872069647898113628}
   playerLayer: 7
   bulletLayer: 8
-  moveSpeed: 20
+  moveSpeed: 30
   damage: 1
   destroyDelay: 5
   spriteRenderer: {fileID: 7681733651314842343}

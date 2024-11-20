@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a636ec2b6b90e42bfc9bc32583a735, type: 3}
+  m_Name: SMG
+  m_EditorClassIdentifier: 
+  weaponName: 
+  weaponSprite: {fileID: 0}
+  comWeaponSprite: {fileID: 21300000, guid: 832ec8f9ff87682498939e906548e1ff, type: 3}
+  rarWeaponSprite: {fileID: 21300000, guid: f3d31f86ec71e9b4790743fdd8e98f2a, type: 3}
+  epiWeaponSprite: {fileID: 21300000, guid: fdb223f1c8a55d94bb4b95d4dd2110a8, type: 3}
+  legWeaponSprite: {fileID: 21300000, guid: a8fb24309f583334bb0fa8870df335ea, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 6e07eef218a155b4ba6560d63e0d1c79, type: 3}
+  comMinBulDmg: 3
+  comMaxBulDmg: 5
+  rarMinBulDmg: 6
+  rarMaxBulDmg: 8
+  epiMinBulDmg: 9
+  epiMaxBulDmg: 11
+  legMinBulDmg: 12
+  legMaxBulDmg: 14
+  comMinCritCha: 2
+  comMaxCritCha: 5
+  rarMinCritCha: 6
+  rarMaxCritCha: 10
+  epiMinCritCha: 11
+  epiMaxCritCha: 15
+  legMinCritCha: 16
+  legMaxCritCha: 25
+  comMinFireRate: 200
+  comMaxFireRate: 299
+  rarMinFireRate: 300
+  rarMaxFireRate: 399
+  epiMinFireRate: 400
+  epiMaxFireRate: 499
+  legMinFireRate: 500
+  legMaxFireRate: 600
+  minAmmoCount: 15
+  maxAmmoCount: 60

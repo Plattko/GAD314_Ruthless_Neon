@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveInput;
     [SerializeField] private float moveSpeed = 3.0f;
     [SerializeField] private float idleSlow = 0.9f;
+    private float curSpeed;
 
     [HideInInspector] public Vector2 lastMoveDir;
     private bool isFacingRight = true;
@@ -22,28 +23,20 @@ public class PlayerController : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] private WeaponManager weaponManager;
-    [SerializeField] private Transform aimPivot;
-    [SerializeField] private Transform gunEndPos;
-    private Vector3 aimPos;
 
-    [Header("Sprite")]
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [Header("Sprite & Animation")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer pistolSprite;
+    [SerializeField] private Transform weaponHolder;
+    [SerializeField] private Animator animator;
 
-    void Start()
+    private void Start()
     {
-
-    }
-
-
-    void Update()
-    {
-        //if (isDashing) { return; }
+        weaponManager.Initialise(animator);
     }
 
     private void FixedUpdate()
     {
-        GetAimPosition();
-
         if (isDashing) { return; }
         Move();
         Flip();
@@ -62,6 +55,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, idleSlow);
         }
+
+        curSpeed = Mathf.Abs(new Vector2(rb.velocity.x, rb.velocity.z).magnitude);
+        animator.SetFloat("Speed", curSpeed);
     }
 
     private IEnumerator Dash() // TODO: Make player unable to be damaged when dashing
@@ -69,20 +65,12 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         isDashing = true;
         rb.velocity = moveInput * (dashDistance / dashDuration);
+        // End of dash
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
+        // End of dash cooldown
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
-    }
-
-    //-------------------------------------------------------------
-    // SHOOTING
-    //-------------------------------------------------------------
-    private void GetAimPosition()
-    {
-        Vector3 mousePos = Mouse3D.GetMouseWorldPosition();
-        aimPos = new Vector3(mousePos.x, aimPivot.position.y, mousePos.z);
-        aimPivot.LookAt(aimPos, Vector3.up);
     }
 
     // ---------------------------------
@@ -95,7 +83,30 @@ public class PlayerController : MonoBehaviour
             isFacingRight = !isFacingRight;
         }
 
-        spriteRenderer.flipX = isFacingRight;
+        //if (isFacingRight && aimPos.x < transform.position.x || !isFacingRight && aimPos.x > transform.position.x)
+        //{
+        //    isFacingRight = !isFacingRight;
+        //}
+
+        spriteRenderer.flipX = !isFacingRight;
+
+        if (isFacingRight)
+        {
+            weaponHolder.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            weaponHolder.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (curSpeed > 0.01f)
+        {
+            pistolSprite.enabled = true;
+        }
+        else
+        {
+            pistolSprite.enabled = false;
+        }
     }
 
     //-------------------------------------------------------------
@@ -116,9 +127,17 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
+        if (context.performed && !isDashing)
+        {
+            weaponManager.Shoot();
+        }
+    }
+
+    public void OnSwapWeapon(InputAction.CallbackContext context)
+    {
         if (context.performed)
         {
-            weaponManager.Shoot(transform.position, gunEndPos.position, aimPos);
+            weaponManager.SwapWeapon();
         }
     }
 }

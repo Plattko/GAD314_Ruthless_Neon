@@ -201707,7 +201707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 155.45
+      value: 44.71
       objectReference: {fileID: 0}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -201715,7 +201715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.7
+      value: -40.36
       objectReference: {fileID: 0}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -299713,6 +299713,7 @@ GameObject:
   - component: {fileID: 2061111424}
   - component: {fileID: 2061111426}
   - component: {fileID: 2061111425}
+  - component: {fileID: 2061111427}
   m_Layer: 0
   m_Name: PlayerHealthUI
   m_TagString: Untagged
@@ -299777,6 +299778,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061111423}
   m_CullTransparentMesh: 1
+--- !u!114 &2061111427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061111423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97046048d8f5861478f4b8fc706b0b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMaximum: 5
+  healthCurrent: 0
+  healthEmpty: {fileID: -1265878309, guid: 0e18c71c2bbb25144af25ba60cca9577, type: 3}
+  healthOne: {fileID: 763149947, guid: 0e18c71c2bbb25144af25ba60cca9577, type: 3}
+  healthTwo: {fileID: 1259809126, guid: 0e18c71c2bbb25144af25ba60cca9577, type: 3}
+  healthThree: {fileID: 880387712, guid: 0e18c71c2bbb25144af25ba60cca9577, type: 3}
+  healthFour: {fileID: -1686534007, guid: 0e18c71c2bbb25144af25ba60cca9577, type: 3}
+  healthFive: {fileID: 151635987, guid: 0e18c71c2bbb25144af25ba60cca9577, type: 3}
+  healthRenderer: {fileID: 2061111425}
 --- !u!1001 &2061305432
 PrefabInstance:
   m_ObjectHideFlags: 0

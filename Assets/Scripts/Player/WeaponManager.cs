@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class WeaponManager : MonoBehaviour
 
     [Header("Sprite & Animation")]
     private Animator animator;
+    [SerializeField] private Sprite pistolSprite;
+    [SerializeField] private Sprite weaponSprite;
+
+    [Header("Image Reference")]
+    [SerializeField] private Image weaponHUD;
 
     private void FixedUpdate()
     {
@@ -69,12 +75,14 @@ public class WeaponManager : MonoBehaviour
                 equippedGun = EquippedGun.Weapon;
                 animator.SetBool("isHoldingPistol", false);
                 animator.SetBool("isHoldingWeapon", true);
+                weaponHUD.sprite = pistolSprite;
                 break;
 
             case EquippedGun.Weapon:
                 equippedGun = EquippedGun.Pistol;
                 animator.SetBool("isHoldingPistol", true);
                 animator.SetBool("isHoldingWeapon", false);
+                weaponHUD.sprite = weaponSprite;
                 break;
 
             default:

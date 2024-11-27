@@ -20,7 +20,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private Sprite healthFive;
 
     [Header("Image Reference")]
-    [SerializeField] private Image healthRenderer;
+    [SerializeField] private Image healthHUD;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +31,20 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (healthCurrent <0)
+        {
+            healthCurrent = 0;
+        }
+
         switch (healthCurrent)
         {
-            case 0: healthRenderer.sprite = healthEmpty; break;
-            case 1: healthRenderer.sprite = healthOne; break;
-            case 2: healthRenderer.sprite = healthTwo; break;
-            case 3: healthRenderer.sprite = healthThree; break;
-            case 4: healthRenderer.sprite = healthFour; break;
-            case 5: healthRenderer.sprite = healthFive; break;
+            case 0: healthHUD.sprite = healthEmpty; break;
+            case 1: healthHUD.sprite = healthOne; break;
+            case 2: healthHUD.sprite = healthTwo; break;
+            case 3: healthHUD.sprite = healthThree; break;
+            case 4: healthHUD.sprite = healthFour; break;
+            case 5: healthHUD.sprite = healthFive; break;
+            default: healthHUD.sprite = healthFive; break;
         }
     }
 }

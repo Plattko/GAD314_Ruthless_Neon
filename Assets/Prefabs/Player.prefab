@@ -363,6 +363,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
   aimPivot: {fileID: 2923225085251860809}
   gunEndPos: {fileID: 6355590338928329987}
+  pistolSprite: {fileID: 0}
+  weaponSprite: {fileID: 0}
+  weaponHUD: {fileID: 0}
 --- !u!1 &3828564558504890077
 GameObject:
   m_ObjectHideFlags: 0

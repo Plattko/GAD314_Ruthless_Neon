@@ -1,5 +1,10 @@
 fileFormatVersion: 2
-guid: 62f19a1aaf2f61d48b3432b7e56aa8c9
+<<<<<<<< HEAD:Assets/Meshes/CyberpunkPack/LowPolySciFiCity/LowPolySciFiCity_2021.3_URP_v1.01.unitypackage.meta
+guid: 043b2a3197d16bf43a12233103ddf62b
+========
+guid: bc06c84c8075ae949bda25543c6c045d
+folderAsset: yes
+>>>>>>>> feature/gun-types:Assets/Scripts/Enemies.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

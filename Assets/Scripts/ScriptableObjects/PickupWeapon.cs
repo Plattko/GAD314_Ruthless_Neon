@@ -5,11 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Pickup Weapon", menuName = "Weapons/PickupWeapon", order = 0)]
 public class PickupWeapon : ScriptableObject
 {
-    [HideInInspector] public string weaponName;
-
+    [Header("Universal Variables")]
+    [SerializeField] protected Transform bulletPrefab;
+    public bool isAutomatic = false;
+    
     public enum Rarity { Common, Rare, Epic, Legendary }
     protected Rarity rarity;
 
+    [HideInInspector] public string weaponName;
     [HideInInspector] public Sprite weaponSprite;
 
     protected int commonWeight = 60;
@@ -19,15 +22,15 @@ public class PickupWeapon : ScriptableObject
 
     protected float bulletDamage;
     protected float critChance;
-    protected float fireRate;
-    protected int ammoCount;
+    public float fireRate;
+    
+    protected int curAmmo;
 
     [Header("Weapon Sprites")]
     [SerializeField] protected Sprite comWeaponSprite;
     [SerializeField] protected Sprite rarWeaponSprite;
     [SerializeField] protected Sprite epiWeaponSprite;
     [SerializeField] protected Sprite legWeaponSprite;
-    [SerializeField] protected Sprite bulletSprite;
 
     [Header("Bullet Damage")]
     [SerializeField] protected float comMinBulDmg;
@@ -91,6 +94,7 @@ public class PickupWeapon : ScriptableObject
 
     public virtual void CreateWeapon()
     {
+        // Set the weapon's rarity
         int totalWeight = commonWeight + rareWeight + epicWeight + legendaryWeight;
         int roll = Random.Range(0, totalWeight);
         Debug.Log("Roll: " + roll);
@@ -111,5 +115,13 @@ public class PickupWeapon : ScriptableObject
         {
             rarity = Rarity.Legendary;
         }
+
+        // Set the weapon's current ammo
+        curAmmo = Random.Range(minAmmoCount, maxAmmoCount);
+    }
+
+    public virtual void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
+    {
+        
     }
 }

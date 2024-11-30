@@ -9,17 +9,16 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int playerLayer;
     [SerializeField] private int bulletLayer;
     [SerializeField] private float moveSpeed = 20f;
-    [SerializeField] private float damage = 1f;
     [SerializeField] private float destroyDelay = 5f;
-    private Vector3 shootDir;
+    private float damage = 1f;
 
     [Header("Sprite")]
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    public void Initialise(Vector3 shootDir)
+    public void Initialise(Vector3 shootDir, float _damage)
     {
-        // Set direction
-        this.shootDir = shootDir;
+        // Set damage
+        damage = _damage;
         // Set rotation
         if (shootDir.x < 0f)
         {

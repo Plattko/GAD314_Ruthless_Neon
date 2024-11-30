@@ -47,13 +47,27 @@ public class SMG : PickupWeapon
                 break;
         }
 
-        ammoCount = Random.Range(minAmmoCount, maxAmmoCount);
-
         Debug.Log("Weapon name: " + weaponName);
         Debug.Log("Rarity: " + rarity);
         Debug.Log("Bullet damage: " + bulletDamage);
         Debug.Log("Crit chance: " + critChance);
         Debug.Log("Fire rate: " + fireRate);
-        Debug.Log("Ammo count: " + ammoCount);
+        Debug.Log("Ammo count: " + curAmmo);
+    }
+
+    public override void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
+    {
+        // If the weapon has no ammo, do nothing
+        if (curAmmo <= 0) { return; }
+
+        // Reduce the weapon's ammo by 1
+        curAmmo -= 1;
+
+        // Spawn the bullet
+        Transform bullet = Instantiate(bulletPrefab, gunEndPos.position, Quaternion.identity);
+        // Set the shoot direction
+        Vector3 shootDir = (aimPos - playerPos).normalized;
+        // Initialise the bullet
+        bullet.GetComponent<Bullet>().Initialise(shootDir, bulletDamage);
     }
 }

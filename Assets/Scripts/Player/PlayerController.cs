@@ -127,9 +127,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed && !isDashing)
+        //if (context.performed && !isDashing)
+        //{
+        //    weaponManager.Shoot();
+        //}
+
+        if (context.started)
         {
-            weaponManager.Shoot();
+            weaponManager.StartShooting();
+        }
+        else if (context.canceled)
+        {
+            weaponManager.StopShooting();
         }
     }
 

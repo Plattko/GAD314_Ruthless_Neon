@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Shotgun", menuName = "Weapons/Shotgun", order = 1)]
 public class Shotgun : PickupWeapon
 {
-    [Header("Shotgun-specific Stats")]
+    [Header("Shotgun Variables")]
     private float spreadDegrees;
     private int pelletCount;
 
@@ -58,7 +58,7 @@ public class Shotgun : PickupWeapon
 
         spreadDegrees = Random.Range(minSpreadDegrees, maxSpreadDegrees);
         pelletCount = Random.Range(minPelletCount, maxPelletCount);
-        ammoCount = Random.Range(minAmmoCount, maxAmmoCount);
+        curAmmo = Random.Range(minAmmoCount, maxAmmoCount);
 
         Debug.Log("Weapon name: " + weaponName);
         Debug.Log("Rarity: " + rarity);
@@ -67,6 +67,6 @@ public class Shotgun : PickupWeapon
         Debug.Log("Fire rate: " + fireRate);
         Debug.Log("Bullet spread (degrees): " + spreadDegrees);
         Debug.Log("Pellet count: " + pelletCount);
-        Debug.Log("Ammo count: " + ammoCount);
+        Debug.Log("Ammo count: " + curAmmo);
     }
 }

@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] private WeaponManager weaponManager;
+    [SerializeField][Range(0f, 5f)] private float timeBetweenShots = 2f;
+    private float lastShotTime = 0f;
+
 
     [Header("Sprite & Animation")]
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -127,9 +130,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed && !isDashing)
+        if (context.performed && !isDashing && (Time.time - lastShotTime) >= timeBetweenShots)
         {
-            weaponManager.Shoot();
+            lastShotTime = Time.time;     
+            weaponManager.Shoot();          
         }
     }
 

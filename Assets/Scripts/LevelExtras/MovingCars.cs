@@ -3,18 +3,17 @@ using UnityEngine;
 public class MovingCars : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public Vector3 startPoint = new Vector3(0, 0, 0); // X-Z plane
-    public Vector3 endPoint = new Vector3(5, 0, 5);   // X-Z plane
+    public Vector3 startPoint = new Vector3(0, 0, 0);
+    public Vector3 endPoint = new Vector3(5, 0, 5);
     public float speed = 2f;
 
     [Header("Prefab Settings")]
-    public GameObject[] prefabs; // Assign prefabs in the inspector
+    public GameObject[] prefabs;
     public float spawnInterval = 2f; // Time between spawns
     public Vector3 rotationEulerAngles = Vector3.zero; // Default rotation in Euler angles
 
     private void Start()
     {
-        // Start spawning objects at regular intervals
         InvokeRepeating(nameof(SpawnObject), 0f, spawnInterval);
     }
 
@@ -22,16 +21,12 @@ public class MovingCars : MonoBehaviour
     {
         if (prefabs.Length > 0)
         {
-            // Randomly select a prefab
             GameObject selectedPrefab = prefabs[Random.Range(0, prefabs.Length)];
 
-            // Convert Euler angles to Quaternion for rotation
             Quaternion rotation = Quaternion.Euler(rotationEulerAngles);
 
-            // Instantiate the prefab with the specified rotation
             GameObject spawnedObject = Instantiate(selectedPrefab, startPoint, rotation);
 
-            // Assign a script to move and destroy the object
             spawnedObject.AddComponent<MovingObject>().Initialize(endPoint, speed);
         }
         else

@@ -88,4 +88,9 @@ public class ShotgunInfoPanel : MonoBehaviour
         spreadNum.text = spread.ToString() + "°";
         ammoNum.text = ammo.ToString();
     }
+
+    public void UpdateAmmo(int ammo)
+    {
+        ammoNum.text = ammo.ToString();
+    }
 }

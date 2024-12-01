@@ -131135,11 +131135,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d906e0c4fc8cc49954abb0706b53c8, type: 3}
---- !u!4 &1258945970 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2688228688177844863, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-  m_PrefabInstance: {fileID: 1444259669379997602}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1259029004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5676341864340076868, guid: 74d906e0c4fc8cc49954abb0706b53c8, type: 3}
@@ -177608,17 +177603,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 410cf93a8d0846747ae81ab05cd73d2f, type: 3}
---- !u!114 &1704853415 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2724977428060970025, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-  m_PrefabInstance: {fileID: 1444259669379997602}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50820b178e0cf2141997af6d90e97ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1704909758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5676341864340076868, guid: 74d906e0c4fc8cc49954abb0706b53c8, type: 3}
@@ -222218,86 +222202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2489853411602824403, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_Name
-      value: NearbyWeaponCheck
-      objectReference: {fileID: 0}
     - target: {fileID: 2724977428060970025, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: interactor
+      propertyPath: nearbyWeaponCheck
       value: 
       objectReference: {fileID: 497371001}
-    - target: {fileID: 3445863948841616334, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: pistol
-      value: 
-      objectReference: {fileID: 1258945970}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
-      value: 9fdd10a6-68e7-4669-b097-d40fa95e10fa
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
-      value: Player/DropWeapon[/Keyboard/e]
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1704853415}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1704853415}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnInteract
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnDropWeapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807859393253935032, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -178.09

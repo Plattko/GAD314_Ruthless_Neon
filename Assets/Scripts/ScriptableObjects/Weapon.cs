@@ -126,6 +126,11 @@ public class Weapon : ScriptableObject
 
     }
 
+    public virtual void UpdateInfoPanelAmmo(RectTransform infoPanel)
+    {
+
+    }
+
     public virtual void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
     {
         

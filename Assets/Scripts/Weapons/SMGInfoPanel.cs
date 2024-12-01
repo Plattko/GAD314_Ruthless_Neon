@@ -82,4 +82,9 @@ public class SMGInfoPanel : MonoBehaviour
         critChanceBar.value = critChance;
         ammoNum.text = ammo.ToString();
     }
+
+    public void UpdateAmmo(int ammo)
+    {
+        ammoNum.text = ammo.ToString();
+    }
 }

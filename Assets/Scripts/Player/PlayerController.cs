@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            weaponManager.DropWeapon(true);
+            weaponManager.DropWeapon(false);
         }
     }
 }

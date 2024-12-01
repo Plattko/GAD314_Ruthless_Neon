@@ -77,4 +77,34 @@ public class Shotgun : Weapon
         // Initialise it with the Shotgun's stats
         shotgunInfoPanel.Initialise(rarity, weaponName, bulletDamage, pelletCount, spreadDegrees, fireRate, critChance, curAmmo);
     }
+
+    public override void UpdateInfoPanelAmmo(RectTransform infoPanel)
+    {
+        // Get a reference to the Shotgun info panel script
+        ShotgunInfoPanel shotgunInfoPanel = infoPanel.GetComponent<ShotgunInfoPanel>();
+        // Initialise it with the Shotgun's stats
+        shotgunInfoPanel.UpdateAmmo(curAmmo);
+    }
+
+    public override void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
+    {
+        // If the weapon has no ammo, do nothing
+        if (curAmmo <= 0) { return; }
+
+        // Reduce the weapon's ammo by 1
+        curAmmo -= 1;
+
+        for (int i = 0; i < pelletCount; i++)
+        {
+            // Spawn the bullet
+            Transform bullet = Instantiate(bulletPrefab, gunEndPos.position, Quaternion.identity);
+
+            // Set the initial shoot direction
+            Vector3 shootDir = (aimPos - playerPos).normalized;
+            // Randomly rotate the shoot direction by the weapon's spread
+            shootDir = Quaternion.AngleAxis(Random.Range(-spreadDegrees / 2, spreadDegrees / 2), Vector3.up) * shootDir;
+            // Initialise the bullet
+            bullet.GetComponent<Bullet>().Initialise(shootDir, bulletDamage);
+        }
+    }
 }

@@ -312,7 +312,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 0.6
   weaponManager: {fileID: 3445863948841616334}
-  interactor: {fileID: 4324401199001518647}
+  nearbyWeaponCheck: {fileID: 4324401199001518647}
   spriteRenderer: {fileID: 7375176331270109891}
   pistolSprite: {fileID: 531379352897520450}
   weaponHolder: {fileID: 7041506734111431148}

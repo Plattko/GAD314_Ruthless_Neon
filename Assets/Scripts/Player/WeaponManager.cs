@@ -134,7 +134,7 @@ public class WeaponManager : MonoBehaviour
         // Drop the currently held pickup weapon
         if (weaponHolder.childCount > 1)
         {
-            DropWeapon(false);
+            DropWeapon(true);
         }
 
         pickupWeapon = weapon.GetComponent<PickupWeapon>();
@@ -151,11 +151,12 @@ public class WeaponManager : MonoBehaviour
     {
         Debug.Log("Dropped weapon.");
 
+        // Do nothing if the player has no pickup weapon
+        if (pickupWeapon == null) { return; }
+
         // What to do if the player is not picking up another weapon (e.g. pressed the drop weapon input)
         if (!isReplacingWeapon)
         {
-            // Do nothing if the player has no pickup weapon
-            if (pickupWeapon == null) { return; }
             // Do nothing if the player is not holding the pickup weapon
             if (equippedGun == EquippedGun.Pistol) { return; }
 
@@ -175,6 +176,9 @@ public class WeaponManager : MonoBehaviour
         // Set the weapon's rigidbody to non-kinematic and enable collision
         pickupWeapon.GetComponent<Rigidbody>().isKinematic = false;
         pickupWeapon.GetComponent<Collider>().enabled = true;
+
+        // Update the ammo count on the info panel
+        pickupWeapon.weaponStats.UpdateInfoPanelAmmo(pickupWeapon.transform.GetChild(0).GetComponent<RectTransform>());
 
         // Give the weapon a slight force so it's thrown in a random direction
         Vector2 dropForceX = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Random.Range(minDropForceX, maxDropForceX);

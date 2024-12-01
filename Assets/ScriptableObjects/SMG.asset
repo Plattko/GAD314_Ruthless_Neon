@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a636ec2b6b90e42bfc9bc32583a735, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
+  infoPanelPrefab: {fileID: 5419252429492875928, guid: 458025de7f1016442880efe588eec8a8, type: 3}
+  bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
+  isAutomatic: 1
   weaponName: 
   weaponSprite: {fileID: 0}
+  fireRate: 0
   comWeaponSprite: {fileID: 21300000, guid: 832ec8f9ff87682498939e906548e1ff, type: 3}
   rarWeaponSprite: {fileID: 21300000, guid: f3d31f86ec71e9b4790743fdd8e98f2a, type: 3}
   epiWeaponSprite: {fileID: 21300000, guid: fdb223f1c8a55d94bb4b95d4dd2110a8, type: 3}
   legWeaponSprite: {fileID: 21300000, guid: a8fb24309f583334bb0fa8870df335ea, type: 3}
-  bulletSprite: {fileID: 21300000, guid: 6e07eef218a155b4ba6560d63e0d1c79, type: 3}
   comMinBulDmg: 3
   comMaxBulDmg: 5
   rarMinBulDmg: 6

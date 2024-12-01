@@ -13,6 +13,7 @@ public class WeaponManager : MonoBehaviour
     [Header("Shooting")]
     [SerializeField] private Transform aimPivot;
     [SerializeField] private Transform gunEndPos;
+    [SerializeField] private Transform weaponHolder;
     private Vector3 aimPos;
     private PickupWeapon pickupWeapon;
 
@@ -120,6 +121,9 @@ public class WeaponManager : MonoBehaviour
         switch (equippedGun)
         {
             case EquippedGun.Pistol:
+                // Don't swap if the player is only holding the pistol
+                if (weaponHolder.childCount <= 1) { return; }
+
                 equippedGun = EquippedGun.PickupWeapon;
                 animator.SetBool("isHoldingPistol", false);
                 animator.SetBool("isHoldingWeapon", true);

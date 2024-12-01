@@ -55,6 +55,14 @@ public class SMG : PickupWeapon
         Debug.Log("Ammo count: " + curAmmo);
     }
 
+    public override void InitialiseInfoPanel(RectTransform infoPanel)
+    {
+        // Get a reference to the SMG info panel script
+        SMGInfoPanel smgInfoPanel = infoPanel.GetComponent<SMGInfoPanel>();
+        // Initialise it with the SMG's stats
+        smgInfoPanel.Initialise(rarity, weaponName, bulletDamage, fireRate, critChance, curAmmo);
+    }
+
     public override void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
     {
         // If the weapon has no ammo, do nothing

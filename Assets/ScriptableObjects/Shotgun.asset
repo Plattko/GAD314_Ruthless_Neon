@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a556c5d90737f43923c0b8d18976ed, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
+  infoPanelPrefab: {fileID: 4649742829041843070, guid: 1cfb8eab8d5fe9f41884e070d7ecaf5a, type: 3}
+  bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
+  isAutomatic: 1
   weaponName: 
   weaponSprite: {fileID: 0}
+  fireRate: 0
   comWeaponSprite: {fileID: 21300000, guid: 837c275fed1bdbe4c89e0654cd58637e, type: 3}
   rarWeaponSprite: {fileID: 21300000, guid: 649e404f287cfad4bb5572e2ae17d22c, type: 3}
   epiWeaponSprite: {fileID: 21300000, guid: e2f4f750c1e36294eb4fec321e71bb1e, type: 3}
   legWeaponSprite: {fileID: 21300000, guid: 415b60e476d2aa94cbafff63a3b40188, type: 3}
-  bulletSprite: {fileID: 21300000, guid: 6e07eef218a155b4ba6560d63e0d1c79, type: 3}
   comMinBulDmg: 1
   comMaxBulDmg: 2
   rarMinBulDmg: 3
@@ -47,3 +50,5 @@ MonoBehaviour:
   maxAmmoCount: 12
   minPelletCount: 3
   maxPelletCount: 12
+  minSpreadDegrees: 10
+  maxSpreadDegrees: 90

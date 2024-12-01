@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponSpawnTest : MonoBehaviour
 {
     [SerializeField] private Transform pickupWeaponPrefab;
-    //[SerializeField] private SMG origSMGScriptableObject;
     [SerializeField] private PickupWeapon[] origPickupWeaponSOs;
+    [SerializeField] private RectTransform[] infoPanelPrefabs;
     private Transform pickupWeapon;
     private PickupWeapon spawnedPickupWeaponSO;
 
@@ -24,15 +24,30 @@ public class WeaponSpawnTest : MonoBehaviour
 
     private void SpawnWeapon()
     {
+        // Instantiate the pickup weapon
         pickupWeapon = Instantiate(pickupWeaponPrefab, transform.position, Quaternion.identity);
-        //spawnedSMG = Instantiate(origSMGScriptableObject);
-        spawnedPickupWeaponSO = Instantiate(origPickupWeaponSOs[Random.Range(0, origPickupWeaponSOs.Length)]);
+        // Randomly pick from the array of weapon types
+        int weaponRoll = Random.Range(0, origPickupWeaponSOs.Length);
+        // Instantiate the weapon's scriptable object
+        spawnedPickupWeaponSO = Instantiate(origPickupWeaponSOs[weaponRoll]);
+        // Create the weapon's stats
         spawnedPickupWeaponSO.CreateWeapon();
-        //spawnedSMG.RarityTest();
+        // Set the weapon's sprite to the sprite chosen when the weapon's stats were created
+        pickupWeapon.GetComponent<SpriteRenderer>().sprite = spawnedPickupWeaponSO.weaponSprite;
 
+        // Instantiate the weapon's info panel
+        RectTransform infoPanel = Instantiate(infoPanelPrefabs[weaponRoll], pickupWeapon);
+        // Set its position and scale so that it appears above the weapon
+        infoPanel.position = new Vector3(pickupWeapon.position.x, pickupWeapon.position.y + 2f, pickupWeapon.position.z);
+        infoPanel.localScale = new Vector3(0.01f, 0.01f, 1f);
+        // Initialise it with the weapon's stats
+        spawnedPickupWeaponSO.InitialiseInfoPanel(infoPanel);
+        // Hide it
+        infoPanel.gameObject.SetActive(false);
+
+        // Give the weapon a slight force so it's thrown in a random direction
         Vector2 dropForceX = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Random.Range(minDropForceX, maxDropForceX);
         Vector3 dropForce = new Vector3(dropForceX.x, dropForceY, dropForceX.y);
         pickupWeapon.GetComponent<Rigidbody>().AddForce(dropForce, ForceMode.Impulse);
-        pickupWeapon.GetComponent<SpriteRenderer>().sprite = spawnedPickupWeaponSO.weaponSprite;
     }
 }

@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Shotgun", menuName = "Weapons/Shotgun", order = 1)]
 public class Shotgun : PickupWeapon
 {
-    [Header("Shotgun Variables")]
-    private float spreadDegrees;
+    private int spreadDegrees;
     private int pelletCount;
 
-    [SerializeField] private float minSpreadDegrees;
-    [SerializeField] private float maxSpreadDegrees;
+    [Header("Shotgun Variables")]
     [SerializeField] private int minPelletCount;
     [SerializeField] private int maxPelletCount;
+    [SerializeField] private int minSpreadDegrees;
+    [SerializeField] private int maxSpreadDegrees;
 
     public override void CreateWeapon()
     {
@@ -56,8 +56,8 @@ public class Shotgun : PickupWeapon
                 break;
         }
 
-        spreadDegrees = Random.Range(minSpreadDegrees, maxSpreadDegrees);
         pelletCount = Random.Range(minPelletCount, maxPelletCount);
+        spreadDegrees = Random.Range(minSpreadDegrees, maxSpreadDegrees);
         curAmmo = Random.Range(minAmmoCount, maxAmmoCount);
 
         Debug.Log("Weapon name: " + weaponName);
@@ -68,5 +68,13 @@ public class Shotgun : PickupWeapon
         Debug.Log("Bullet spread (degrees): " + spreadDegrees);
         Debug.Log("Pellet count: " + pelletCount);
         Debug.Log("Ammo count: " + curAmmo);
+    }
+
+    public override void InitialiseInfoPanel(RectTransform infoPanel)
+    {
+        // Get a reference to the Shotgun info panel script
+        ShotgunInfoPanel shotgunInfoPanel = infoPanel.GetComponent<ShotgunInfoPanel>();
+        // Initialise it with the Shotgun's stats
+        shotgunInfoPanel.Initialise(rarity, weaponName, bulletDamage, pelletCount, spreadDegrees, fireRate, critChance, curAmmo);
     }
 }

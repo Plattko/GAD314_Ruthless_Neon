@@ -19478,7 +19478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoredLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 1408
 --- !u!4 &203746515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5676341864340076868, guid: 74d906e0c4fc8cc49954abb0706b53c8, type: 3}
@@ -131310,6 +131310,9 @@ MonoBehaviour:
   origPickupWeaponSOs:
   - {fileID: 11400000, guid: 9c14610565ef50b4399aaebb0210456d, type: 2}
   - {fileID: 11400000, guid: 10753aba1d8273140b750f8950884754, type: 2}
+  infoPanelPrefabs:
+  - {fileID: 5419252429492875928, guid: 458025de7f1016442880efe588eec8a8, type: 3}
+  - {fileID: 4649742829041843070, guid: 1cfb8eab8d5fe9f41884e070d7ecaf5a, type: 3}
 --- !u!1001 &1262530124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222184,14 +222187,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2724977428060970025, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3445863948841616334, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
-      propertyPath: pickupWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 424f5b1b6e37c57438f0762cf3d29c99, type: 2}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -178.09

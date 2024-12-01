@@ -6,6 +6,7 @@ using UnityEngine;
 public class PickupWeapon : ScriptableObject
 {
     [Header("Universal Variables")]
+    [SerializeField] protected RectTransform infoPanelPrefab;
     [SerializeField] protected Transform bulletPrefab;
     public bool isAutomatic = false;
     
@@ -20,9 +21,9 @@ public class PickupWeapon : ScriptableObject
     protected int epicWeight = 10;
     protected int legendaryWeight = 5;
 
-    protected float bulletDamage;
-    protected float critChance;
-    public float fireRate;
+    protected int bulletDamage;
+    [HideInInspector] public int fireRate;
+    protected int critChance;
     
     protected int curAmmo;
 
@@ -33,25 +34,25 @@ public class PickupWeapon : ScriptableObject
     [SerializeField] protected Sprite legWeaponSprite;
 
     [Header("Bullet Damage")]
-    [SerializeField] protected float comMinBulDmg;
-    [SerializeField] protected float comMaxBulDmg;
-    [SerializeField] protected float rarMinBulDmg, rarMaxBulDmg;
-    [SerializeField] protected float epiMinBulDmg, epiMaxBulDmg;
-    [SerializeField] protected float legMinBulDmg, legMaxBulDmg;
+    [SerializeField] protected int comMinBulDmg;
+    [SerializeField] protected int comMaxBulDmg;
+    [SerializeField] protected int rarMinBulDmg, rarMaxBulDmg;
+    [SerializeField] protected int epiMinBulDmg, epiMaxBulDmg;
+    [SerializeField] protected int legMinBulDmg, legMaxBulDmg;
 
     [Header("Crit Chance")]
-    [SerializeField] protected float comMinCritCha;
-    [SerializeField] protected float comMaxCritCha;
-    [SerializeField] protected float rarMinCritCha, rarMaxCritCha;
-    [SerializeField] protected float epiMinCritCha, epiMaxCritCha;
-    [SerializeField] protected float legMinCritCha, legMaxCritCha;
+    [SerializeField] protected int comMinCritCha;
+    [SerializeField] protected int comMaxCritCha;
+    [SerializeField] protected int rarMinCritCha, rarMaxCritCha;
+    [SerializeField] protected int epiMinCritCha, epiMaxCritCha;
+    [SerializeField] protected int legMinCritCha, legMaxCritCha;
 
     [Header("Fire Rate")]
-    [SerializeField] protected float comMinFireRate;
-    [SerializeField] protected float comMaxFireRate;
-    [SerializeField] protected float rarMinFireRate, rarMaxFireRate;
-    [SerializeField] protected float epiMinFireRate, epiMaxFireRate;
-    [SerializeField] protected float legMinFireRate, legMaxFireRate;
+    [SerializeField] protected int comMinFireRate;
+    [SerializeField] protected int comMaxFireRate;
+    [SerializeField] protected int rarMinFireRate, rarMaxFireRate;
+    [SerializeField] protected int epiMinFireRate, epiMaxFireRate;
+    [SerializeField] protected int legMinFireRate, legMaxFireRate;
 
     [Header("Ammo Count")]
     [SerializeField] protected int minAmmoCount;
@@ -118,6 +119,11 @@ public class PickupWeapon : ScriptableObject
 
         // Set the weapon's current ammo
         curAmmo = Random.Range(minAmmoCount, maxAmmoCount);
+    }
+
+    public virtual void InitialiseInfoPanel(RectTransform infoPanel)
+    {
+
     }
 
     public virtual void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)

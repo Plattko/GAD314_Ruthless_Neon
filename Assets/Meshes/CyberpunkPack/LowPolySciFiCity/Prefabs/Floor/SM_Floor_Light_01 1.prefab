@@ -311,5 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightSource: {fileID: 4072400014685799221}
-  minFlickerDelay: 0.2
-  maxFlickerDelay: 0.5
+  minFlickerDelay: 0.1
+  maxFlickerDelay: 0.2
+  minIntensity: 1
+  maxIntensity: 2

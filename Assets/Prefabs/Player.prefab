@@ -256,9 +256,37 @@ MonoBehaviour:
     m_ActionId: 8db9113c-574e-4b7c-920e-ca0c2a010a20
     m_ActionName: Player/SwapWeapon[/Keyboard/shift]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2724977428060970025}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: bcfa23d5-3229-4970-a9fa-6f471795174e
     m_ActionName: Player/Interact[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2724977428060970025}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDropWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9fdd10a6-68e7-4669-b097-d40fa95e10fa
+    m_ActionName: Player/DropWeapon[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -284,6 +312,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 0.6
   weaponManager: {fileID: 3445863948841616334}
+  interactor: {fileID: 4324401199001518647}
   spriteRenderer: {fileID: 7375176331270109891}
   pistolSprite: {fileID: 531379352897520450}
   weaponHolder: {fileID: 7041506734111431148}
@@ -331,7 +360,7 @@ GameObject:
   - component: {fileID: 7129638772908552153}
   - component: {fileID: 4324401199001518647}
   m_Layer: 10
-  m_Name: Interactor
+  m_Name: NearbyWeaponCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78baee64ff025af4c988b0c915830983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nearestGun: {fileID: 0}
 --- !u!1 &2635816828834767361
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,10 +462,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
+  pistolDmg: 1
   aimPivot: {fileID: 2923225085251860809}
   gunEndPos: {fileID: 6355590338928329987}
   weaponHolder: {fileID: 7041506734111431148}
-  pistolDmg: 1
+  pistol: {fileID: 2688228688177844863}
   isShooting: 0
   weaponHUD: {fileID: 0}
 --- !u!1 &3828564558504890077

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactor : MonoBehaviour
+public class NearbyWeaponCheck : MonoBehaviour
 {
     private List<Transform> nearbyGuns = new List<Transform>();
-    private Transform nearestGun;
+    [HideInInspector] public Transform nearestGun;
 
     private void FixedUpdate()
     {
         FindNearestGun();
-        Debug.Log("Nearby gun count: " + nearbyGuns.Count);
+        //Debug.Log("Nearby gun count: " + nearbyGuns.Count);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,5 +57,25 @@ public class Interactor : MonoBehaviour
                 gun.GetChild(0).gameObject.SetActive(false);
             }
         }
+    }
+
+    public Transform SelectNearestGun()
+    {
+        // Do nothing if there are no nearby guns
+        if (nearbyGuns.Count <= 0) { return null; }
+
+        // Set the gun's rigidbody to kinematic and disable collision
+        nearestGun.GetComponent<Rigidbody>().isKinematic = true;
+        nearestGun.GetComponent<Collider>().enabled = false;
+        // Hide the gun's info panel if it is shown
+        nearestGun.transform.GetChild(0).gameObject.SetActive(false);
+        // Remove the nearest gun from the nearby guns
+        nearbyGuns.Remove(nearestGun);
+        // Make the nearest gun the selected gun
+        Transform selectedGun = nearestGun;
+        // Set the nearest gun to null
+        nearestGun = null;
+        // Return the selected gun
+        return selectedGun;
     }
 }

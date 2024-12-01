@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Pickup Weapon", menuName = "Weapons/PickupWeapon", order = 0)]
-public class PickupWeapon : ScriptableObject
+public class Weapon : ScriptableObject
 {
     [Header("Universal Variables")]
     [SerializeField] protected RectTransform infoPanelPrefab;

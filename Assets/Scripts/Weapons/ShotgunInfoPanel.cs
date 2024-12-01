@@ -32,11 +32,11 @@ public class ShotgunInfoPanel : MonoBehaviour
     [SerializeField] private Slider fireRateBar;
     [SerializeField] private Slider critChanceBar;
 
-    public void Initialise(PickupWeapon.Rarity rarity, string weaponName, int dmg, int pellets, int spread, int fireRate, int critChance, int ammo)
+    public void Initialise(Weapon.Rarity rarity, string weaponName, int dmg, int pellets, int spread, int fireRate, int critChance, int ammo)
     {
         switch (rarity)
         {
-            case PickupWeapon.Rarity.Common:
+            case Weapon.Rarity.Common:
                 foreach (Image image in lightColourImages)
                 {
                     image.color = commonLightColour;
@@ -45,7 +45,7 @@ public class ShotgunInfoPanel : MonoBehaviour
                 rarityText.text = "Common";
                 break;
 
-            case PickupWeapon.Rarity.Rare:
+            case Weapon.Rarity.Rare:
                 foreach (Image image in lightColourImages)
                 {
                     image.color = rareLightColour;
@@ -54,7 +54,7 @@ public class ShotgunInfoPanel : MonoBehaviour
                 rarityText.text = "Rare";
                 break;
 
-            case PickupWeapon.Rarity.Epic:
+            case Weapon.Rarity.Epic:
                 foreach (Image image in lightColourImages)
                 {
                     image.color = epicLightColour;
@@ -63,7 +63,7 @@ public class ShotgunInfoPanel : MonoBehaviour
                 rarityText.text = "Epic";
                 break;
 
-            case PickupWeapon.Rarity.Legendary:
+            case Weapon.Rarity.Legendary:
                 foreach (Image image in lightColourImages)
                 {
                     image.color = legendaryLightColour;

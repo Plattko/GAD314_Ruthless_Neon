@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1295300918040460686}
   - component: {fileID: 3396922371800050106}
   - component: {fileID: 2520082284075855065}
-  - component: {fileID: 2348997187677538351}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -120,20 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d68437049bcb4fb109942290098df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: {fileID: 2348997187677538351}
+  damageable: {fileID: 0}
   maxHealth: 3
---- !u!114 &2348997187677538351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719239633814346134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef234a0a99c9c8469ec8e8a0325228a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8907708080360309884
 GameObject:
   m_ObjectHideFlags: 0

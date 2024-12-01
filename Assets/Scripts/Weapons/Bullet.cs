@@ -35,11 +35,11 @@ public class Bullet : MonoBehaviour
         // Ignore collision with the player and other bullets
         if (other.gameObject.layer == playerLayer || other.gameObject.layer == bulletLayer) { return; }
         
-        Damageable damageable = other.GetComponent<Damageable>();
+        IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {
             // Hit a damageable object
-            damageable.Damage(damage);
+            damageable.TakeDamage(damage);
             Destroy(gameObject);
         }
         else

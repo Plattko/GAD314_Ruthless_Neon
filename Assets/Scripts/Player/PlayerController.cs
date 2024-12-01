@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [Header("Shooting")]
     [SerializeField] private WeaponManager weaponManager;
 
+    [Header("Interaction")]
+    [SerializeField] private NearbyWeaponCheck nearbyWeaponCheck;
+
     [Header("Sprite & Animation")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private SpriteRenderer pistolSprite;
@@ -99,14 +102,14 @@ public class PlayerController : MonoBehaviour
             weaponHolder.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (curSpeed > 0.01f)
-        {
-            pistolSprite.enabled = true;
-        }
-        else
-        {
-            pistolSprite.enabled = false;
-        }
+        //if (curSpeed > 0.01f)                         // TODO: Find more elegant solution
+        //{
+        //    pistolSprite.enabled = true;
+        //}
+        //else
+        //{
+        //    pistolSprite.enabled = false;
+        //}
     }
 
     //-------------------------------------------------------------
@@ -147,6 +150,22 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             weaponManager.SwapWeapon();
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            weaponManager.PickUpWeapon(nearbyWeaponCheck.SelectNearestGun());
+        }
+    }
+
+    public void OnDropWeapon(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            weaponManager.DropWeapon(true);
         }
     }
 }

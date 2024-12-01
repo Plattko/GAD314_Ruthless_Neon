@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Shotgun", menuName = "Weapons/Shotgun", order = 1)]
-public class Shotgun : PickupWeapon
+public class Shotgun : Weapon
 {
     private int spreadDegrees;
     private int pelletCount;

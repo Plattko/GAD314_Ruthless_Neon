@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] private Damageable damageable;
     [SerializeField] private int maxHealth = 3;
     private float curHealth;
 
@@ -13,17 +12,7 @@ public class Enemy : MonoBehaviour
         curHealth = maxHealth;
     }
 
-    private void OnEnable()
-    {
-        damageable.onDamaged += TakeDamage;
-    }
-
-    private void OnDisable()
-    {
-        damageable.onDamaged -= TakeDamage;
-    }
-
-    private void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         curHealth -= amount;
         if (curHealth <= 0)

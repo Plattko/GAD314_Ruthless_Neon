@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PatrolPath : MonoBehaviour
 {
@@ -10,25 +11,42 @@ public class PatrolPath : MonoBehaviour
 
     private int waypointIndex = 0;
 
+    private bool isPlayerInRange = false;
 
     private bool isFacingRight = true;
-    // Start is called before the first frame update
+
+    private EnemyShoot shoot;
+
     void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
+
+        shoot = GetComponent<EnemyShoot>();
     }
     void Update()
     {
-        //Flip(); Need to fix
+        if (shoot != null)
+        {
+            isPlayerInRange = shoot.IsPlayerInRange();
+        }
+        if (isPlayerInRange)
+        {
+            return;
+        }
         Move();
+      
     }
 
-    private void Flip()
+    private void Flip(Vector3 moveDirection)
     {
-        isFacingRight = !isFacingRight;
-        Vector2 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
+        // Flip only if there is a significant movement on the X-axis
+        if ((moveDirection.x > 0 && !isFacingRight) || (moveDirection.x < 0 && isFacingRight))
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
     }
 
     private void Move()
@@ -43,7 +61,7 @@ public class PatrolPath : MonoBehaviour
             //if enemy reaches position of waypoint he moves towards
             //then the waypointindex is increased by 1
             //and enemy starts to walk to next 1
-                if (transform.position == waypoints[waypointIndex].transform.position)
+            if (transform.position == waypoints[waypointIndex].transform.position)
                 {
                 waypointIndex += 1;
                 
@@ -55,6 +73,9 @@ public class PatrolPath : MonoBehaviour
         {
             Vector3 targetPosition = waypoints[waypointIndex].position;
             Vector3 moveDirection = (targetPosition - transform.position).normalized;
+
+            Flip(moveDirection);
+
             Vector3 newPosition = transform.position + moveDirection * moveSpeed * Time.deltaTime;
 
             GetComponent<Rigidbody>().MovePosition(newPosition);

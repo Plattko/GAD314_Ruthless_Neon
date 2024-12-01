@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,54 +6,91 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform target;
     [SerializeField] private Transform firepoint;
     [SerializeField] private GameObject projectile;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private LayerMask player;
 
     [Header("Weapon stats")]
-    [Range(0.1f, 3f)] public float fireRate;
+    [Range(0.1f, 3f)] public float fireRate; // Delay between full shooting cycles
     [Range(1, 3)] public int bulletsPerShot;
-    [Range(0.1f, 1f)] public float rotateSpeed;
-
-    private Rigidbody rb;
+    [Range(0.1f, 10f)] public float rotateSpeed = 5f; // Rotation speed of firepoint
+    [Range(5f, 50f)] public float attackRange = 15f;
     public float initialShotFire = 0.5f;
+
+    private Transform playerTransform;
+    private bool canShoot = false;
+    private bool isShooting = false; // To prevent multiple coroutines running at the same time
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        
+        StartCoroutine(InitialDelay());
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!target)
-        {
-            GetTarget();
-        }
-        Shoot();
-    }
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, player);
 
-    private void GetTarget()
-    {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    private void Shoot()
-    {
-        if(initialShotFire <= 0)
+        if (hitColliders.Length > 0)
         {
-            Instantiate(projectile, firepoint.position, firepoint.rotation);
-            initialShotFire = fireRate;
+            playerTransform = hitColliders[0].transform;
+
+            // Rotate firepoint to face player
+            RotateFirepoint();
+
+            if (canShoot && !isShooting)
+            {
+                isShooting = true;
+                StartCoroutine(Shoot());
+            }
         }
         else
         {
-            initialShotFire -= Time.deltaTime;
+            playerTransform = null;
         }
     }
-    private void PlayerFound()
+
+    void RotateFirepoint()
     {
-       
+        if (playerTransform != null)
+        {
+            Vector3 direction = (playerTransform.position - firepoint.position).normalized;
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+            firepoint.rotation = targetRotation;
+        }
     }
+
+    IEnumerator InitialDelay()
+    {
+        yield return new WaitForSeconds(initialShotFire);
+        canShoot = true;
+    }
+
+    IEnumerator Shoot()
+    {
+        for (int i = 0; i < bulletsPerShot; i++)
+        {
+            Instantiate(projectile, firepoint.position, firepoint.rotation);
+            yield return new WaitForSeconds(0.2f); 
+        }
+        yield return new WaitForSeconds(fireRate); 
+        isShooting = false; 
+    }
+
+    public bool IsPlayerInRange()
+{
+    Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, player);
+    return hitColliders.Length > 0;
+}
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackRange > 0)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
+    }
+
 }

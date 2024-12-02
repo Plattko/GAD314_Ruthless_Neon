@@ -39,12 +39,12 @@ MonoBehaviour:
   legMinCritCha: 16
   legMaxCritCha: 25
   comMinFireRate: 200
-  comMaxFireRate: 299
-  rarMinFireRate: 300
-  rarMaxFireRate: 399
-  epiMinFireRate: 400
-  epiMaxFireRate: 499
-  legMinFireRate: 500
+  comMaxFireRate: 300
+  rarMinFireRate: 301
+  rarMaxFireRate: 400
+  epiMinFireRate: 401
+  epiMaxFireRate: 500
+  legMinFireRate: 501
   legMaxFireRate: 600
   minAmmoCount: 15
   maxAmmoCount: 60

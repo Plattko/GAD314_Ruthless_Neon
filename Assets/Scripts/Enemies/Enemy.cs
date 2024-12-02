@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     [Header("Loot")]
     [SerializeField] private WeaponSpawner weaponSpawner;
-    [SerializeField] private float weaponDropChance = 0.33f;
+    private float weaponDropChance = 0.5f;
 
     private void Start()
     {

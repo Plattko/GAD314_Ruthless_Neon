@@ -120,8 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d68437049bcb4fb109942290098df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSpawner: {fileID: 6119859860560788456}
   maxHealth: 20
+  weaponSpawner: {fileID: 6119859860560788456}
+  weaponDropChance: 1
 --- !u!114 &6119859860560788456
 MonoBehaviour:
   m_ObjectHideFlags: 0

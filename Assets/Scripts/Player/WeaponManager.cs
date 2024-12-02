@@ -10,7 +10,7 @@ public class WeaponManager : MonoBehaviour
 
     [Header("Pistol")]
     [SerializeField] private Transform bulletPrefab;
-    [SerializeField] private float pistolDmg = 1f;
+    [SerializeField] private float pistolDmg = 4f;
     
     [Header("Pickup Weapon")]
     private float minDropForceX = 2f;

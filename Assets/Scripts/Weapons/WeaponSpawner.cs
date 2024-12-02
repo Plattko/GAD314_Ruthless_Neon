@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSpawnTest : MonoBehaviour
+public class WeaponSpawner : MonoBehaviour
 {
     [SerializeField] private Transform pickupWeaponPrefab;
     [SerializeField] private Weapon[] origWeaponSO;
@@ -14,15 +14,15 @@ public class WeaponSpawnTest : MonoBehaviour
     private float maxDropForceX = 3f;
     private float dropForceY = 2f;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            SpawnWeapon();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.G))
+    //    {
+    //        SpawnWeapon();
+    //    }
+    //}
 
-    private void SpawnWeapon()
+    public void SpawnWeapon()
     {
         // Instantiate the pickup weapon
         pickupWeapon = Instantiate(pickupWeaponPrefab, transform.position, Quaternion.identity);

@@ -50,5 +50,5 @@ MonoBehaviour:
   maxAmmoCount: 12
   minPelletCount: 3
   maxPelletCount: 12
-  minSpreadDegrees: 10
-  maxSpreadDegrees: 90
+  minSpreadDegrees: 20
+  maxSpreadDegrees: 60

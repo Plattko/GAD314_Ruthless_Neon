@@ -6476,6 +6476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.51
@@ -18511,6 +18515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 190.7
@@ -30155,6 +30163,10 @@ PrefabInstance:
       propertyPath: damageable
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.64
@@ -34724,6 +34736,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48168,6 +48184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 106.8
@@ -57588,6 +57608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 194.07
@@ -59532,6 +59556,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65519,6 +65547,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -73552,6 +73584,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -110514,6 +110550,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -150023,6 +150063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 188.91
@@ -151309,6 +151353,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -155395,6 +155443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50.91
@@ -156747,6 +156799,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -164383,6 +164439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 250.48
@@ -167171,6 +167231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 248.99
@@ -169188,6 +169252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 280.41
@@ -170198,6 +170266,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -172462,6 +172534,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -195005,6 +195081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 272.18
@@ -203000,6 +203080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 248.44
@@ -209128,6 +209212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 278.48
@@ -209184,6 +209272,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -209977,6 +210069,10 @@ PrefabInstance:
     - target: {fileID: 719239633814346134, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_Name
       value: TestTarget (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -219695,6 +219791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 2520082284075855065, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8425976003142761041, guid: 48caa05145e96904ea608f746b63ba28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.84
@@ -222206,6 +222306,10 @@ PrefabInstance:
       propertyPath: nearbyWeaponCheck
       value: 
       objectReference: {fileID: 497371001}
+    - target: {fileID: 3445863948841616334, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
+      propertyPath: pistolDmg
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -178.09

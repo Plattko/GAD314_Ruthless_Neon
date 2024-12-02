@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1295300918040460686}
   - component: {fileID: 3396922371800050106}
   - component: {fileID: 2520082284075855065}
+  - component: {fileID: 6119859860560788456}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -119,8 +120,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d68437049bcb4fb109942290098df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: {fileID: 0}
-  maxHealth: 3
+  weaponSpawner: {fileID: 6119859860560788456}
+  maxHealth: 20
+--- !u!114 &6119859860560788456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719239633814346134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2efa28b17db072499ddedc487d3477e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupWeaponPrefab: {fileID: 8330998740399296204, guid: 6ca13df3a06e107459c52ee6ecef399f, type: 3}
+  origWeaponSO:
+  - {fileID: 11400000, guid: 9c14610565ef50b4399aaebb0210456d, type: 2}
+  - {fileID: 11400000, guid: 10753aba1d8273140b750f8950884754, type: 2}
+  infoPanelPrefabs:
+  - {fileID: 5419252429492875928, guid: 458025de7f1016442880efe588eec8a8, type: 3}
+  - {fileID: 4649742829041843070, guid: 1cfb8eab8d5fe9f41884e070d7ecaf5a, type: 3}
 --- !u!1 &8907708080360309884
 GameObject:
   m_ObjectHideFlags: 0

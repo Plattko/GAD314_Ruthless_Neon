@@ -68,6 +68,7 @@ Transform:
   m_Children:
   - {fileID: 2780260969942039645}
   - {fileID: 403078888708836140}
+  - {fileID: 816980768475621178}
   - {fileID: 3806711130252622071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,6 +255,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8db9113c-574e-4b7c-920e-ca0c2a010a20
     m_ActionName: Player/SwapWeapon[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2724977428060970025}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bcfa23d5-3229-4970-a9fa-6f471795174e
+    m_ActionName: Player/Interact[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2724977428060970025}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDropWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9fdd10a6-68e7-4669-b097-d40fa95e10fa
+    m_ActionName: Player/DropWeapon[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2724977428060970025}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cfb2465c-c206-4ad8-abf3-adfd0615607f
+    m_ActionName: Player/Pause[/Keyboard/backquote]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -272,13 +321,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6095974016079092240}
-  moveSpeed: 8
+  dashSFX: {fileID: 8300000, guid: 57c208972f8f76847883558fbc497f84, type: 3}
+  moveSpeed: 10
   idleSlow: 0.9
   lastMoveDir: {x: 0, y: 0}
   dashDistance: 10
   dashDuration: 0.2
   dashCooldown: 0.6
   weaponManager: {fileID: 3445863948841616334}
+  nearbyWeaponCheck: {fileID: 4324401199001518647}
   spriteRenderer: {fileID: 7375176331270109891}
   pistolSprite: {fileID: 531379352897520450}
   weaponHolder: {fileID: 7041506734111431148}
@@ -314,6 +365,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2923225085251860809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2489853411602824403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816980768475621178}
+  - component: {fileID: 7129638772908552153}
+  - component: {fileID: 4324401199001518647}
+  m_Layer: 10
+  m_Name: NearbyWeaponCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &816980768475621178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2489853411602824403}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5008563799151314272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7129638772908552153
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2489853411602824403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4324401199001518647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2489853411602824403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78baee64ff025af4c988b0c915830983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearestGun: {fileID: 0}
 --- !u!1 &2635816828834767361
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,10 +479,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
+  pistolFireSFX: {fileID: 8300000, guid: 7853b0ccf9b30af408de1a3fd8f5e8ad, type: 3}
+  pickUpWeaponSFX: {fileID: 8300000, guid: a47102dc096fe824cb067703c296cbd5, type: 3}
+  dropWeaponSFX: {fileID: 8300000, guid: 3534961204998c742ba49d1612c01ce4, type: 3}
+  pistolDmg: 4
   aimPivot: {fileID: 2923225085251860809}
   gunEndPos: {fileID: 6355590338928329987}
-  pistolSprite: {fileID: 0}
-  weaponSprite: {fileID: 0}
+  weaponHolder: {fileID: 7041506734111431148}
+  pistol: {fileID: 2688228688177844863}
+  isShooting: 0
   weaponHUD: {fileID: 0}
 --- !u!1 &3828564558504890077
 GameObject:

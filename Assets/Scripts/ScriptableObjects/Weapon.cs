@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Pickup Weapon", menuName = "Weapons/PickupWeapon", order = 0)]
-public class PickupWeapon : ScriptableObject
+public class Weapon : ScriptableObject
 {
-    [HideInInspector] public string weaponName;
-
+    [Header("Universal Variables")]
+    [SerializeField] protected RectTransform infoPanelPrefab;
+    [SerializeField] protected Transform bulletPrefab;
+    [SerializeField] protected AudioClip fireSFX;
+    [SerializeField] protected AudioClip noAmmoSFX;
+    public bool isAutomatic = false;
+    
     public enum Rarity { Common, Rare, Epic, Legendary }
     protected Rarity rarity;
 
+    [HideInInspector] public string weaponName;
     [HideInInspector] public Sprite weaponSprite;
 
     protected int commonWeight = 60;
@@ -18,16 +24,16 @@ public class PickupWeapon : ScriptableObject
     protected int legendaryWeight = 5;
 
     protected float bulletDamage;
-    protected float critChance;
-    protected float fireRate;
-    protected int ammoCount;
+    [HideInInspector] public int fireRate;
+    protected int critChance;
+    
+    protected int curAmmo;
 
     [Header("Weapon Sprites")]
     [SerializeField] protected Sprite comWeaponSprite;
     [SerializeField] protected Sprite rarWeaponSprite;
     [SerializeField] protected Sprite epiWeaponSprite;
     [SerializeField] protected Sprite legWeaponSprite;
-    [SerializeField] protected Sprite bulletSprite;
 
     [Header("Bullet Damage")]
     [SerializeField] protected float comMinBulDmg;
@@ -37,18 +43,18 @@ public class PickupWeapon : ScriptableObject
     [SerializeField] protected float legMinBulDmg, legMaxBulDmg;
 
     [Header("Crit Chance")]
-    [SerializeField] protected float comMinCritCha;
-    [SerializeField] protected float comMaxCritCha;
-    [SerializeField] protected float rarMinCritCha, rarMaxCritCha;
-    [SerializeField] protected float epiMinCritCha, epiMaxCritCha;
-    [SerializeField] protected float legMinCritCha, legMaxCritCha;
+    [SerializeField] protected int comMinCritCha;
+    [SerializeField] protected int comMaxCritCha;
+    [SerializeField] protected int rarMinCritCha, rarMaxCritCha;
+    [SerializeField] protected int epiMinCritCha, epiMaxCritCha;
+    [SerializeField] protected int legMinCritCha, legMaxCritCha;
 
     [Header("Fire Rate")]
-    [SerializeField] protected float comMinFireRate;
-    [SerializeField] protected float comMaxFireRate;
-    [SerializeField] protected float rarMinFireRate, rarMaxFireRate;
-    [SerializeField] protected float epiMinFireRate, epiMaxFireRate;
-    [SerializeField] protected float legMinFireRate, legMaxFireRate;
+    [SerializeField] protected int comMinFireRate;
+    [SerializeField] protected int comMaxFireRate;
+    [SerializeField] protected int rarMinFireRate, rarMaxFireRate;
+    [SerializeField] protected int epiMinFireRate, epiMaxFireRate;
+    [SerializeField] protected int legMinFireRate, legMaxFireRate;
 
     [Header("Ammo Count")]
     [SerializeField] protected int minAmmoCount;
@@ -91,6 +97,7 @@ public class PickupWeapon : ScriptableObject
 
     public virtual void CreateWeapon()
     {
+        // Set the weapon's rarity
         int totalWeight = commonWeight + rareWeight + epicWeight + legendaryWeight;
         int roll = Random.Range(0, totalWeight);
         Debug.Log("Roll: " + roll);
@@ -111,5 +118,23 @@ public class PickupWeapon : ScriptableObject
         {
             rarity = Rarity.Legendary;
         }
+
+        // Set the weapon's current ammo
+        curAmmo = Random.Range(minAmmoCount, maxAmmoCount);
+    }
+
+    public virtual void InitialiseInfoPanel(RectTransform infoPanel)
+    {
+
+    }
+
+    public virtual void UpdateInfoPanelAmmo(RectTransform infoPanel)
+    {
+
+    }
+
+    public virtual void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
+    {
+        
     }
 }

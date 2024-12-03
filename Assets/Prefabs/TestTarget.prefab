@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1295300918040460686}
   - component: {fileID: 3396922371800050106}
   - component: {fileID: 1960252462978255967}
-  - component: {fileID: 2348997187677538351}
   m_Layer: 0
   m_Name: TestTarget
   m_TagString: Untagged
@@ -119,18 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8868d5dd414d4244a90d50bdd2fcf345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: {fileID: 2348997187677538351}
+  minHealth: 3
   maxHealth: 10
-  curHealth: 10
---- !u!114 &2348997187677538351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719239633814346134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef234a0a99c9c8469ec8e8a0325228a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

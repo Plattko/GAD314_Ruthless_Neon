@@ -28,11 +28,11 @@ public class ShotgunInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ammoNum;
 
     [SerializeField] private Slider dmgBar;
-    [SerializeField] private Slider pelletsBar;
+    //[SerializeField] private Slider pelletsBar;
     [SerializeField] private Slider fireRateBar;
     [SerializeField] private Slider critChanceBar;
 
-    public void Initialise(Weapon.Rarity rarity, string weaponName, int dmg, int pellets, int spread, int fireRate, int critChance, int ammo)
+    public void Initialise(Weapon.Rarity rarity, string weaponName, float dmg, int pellets, int spread, int fireRate, int critChance, int ammo)
     {
         switch (rarity)
         {
@@ -77,13 +77,13 @@ public class ShotgunInfoPanel : MonoBehaviour
         }
 
         nameText.text = weaponName;
-        dmgNum.text = dmg.ToString();
+        dmgNum.text = dmg.ToString("#.#");
         dmgBar.value = dmg;
         pelletsNum.text = pellets.ToString();
-        pelletsBar.value = pellets;
+        //pelletsBar.value = pellets;
         fireRateNum.text = fireRate.ToString();
         fireRateBar.value = fireRate;
-        critChanceNum.text = critChance.ToString();
+        critChanceNum.text = critChance.ToString() + "%";
         critChanceBar.value = critChance;
         spreadNum.text = spread.ToString() + "°";
         ammoNum.text = ammo.ToString();

@@ -14,7 +14,7 @@ public class SMG : Weapon
             case Rarity.Common:
                 weaponName = "Common SMG";
                 weaponSprite = comWeaponSprite;
-                bulletDamage = Random.Range(comMinBulDmg, comMaxBulDmg);
+                bulletDamage = Mathf.RoundToInt(Random.Range(comMinBulDmg, comMaxBulDmg));
                 critChance = Random.Range(comMinCritCha, comMaxCritCha);
                 fireRate = Random.Range(comMinFireRate, comMaxFireRate);
                 break;
@@ -22,7 +22,7 @@ public class SMG : Weapon
             case Rarity.Rare:
                 weaponName = "Rare SMG";
                 weaponSprite = rarWeaponSprite;
-                bulletDamage = Random.Range(rarMinBulDmg, rarMaxBulDmg);
+                bulletDamage = Mathf.RoundToInt(Random.Range(rarMinBulDmg, rarMaxBulDmg));
                 critChance = Random.Range(rarMinCritCha, rarMaxCritCha);
                 fireRate = Random.Range(rarMinFireRate, rarMaxFireRate);
                 break;
@@ -30,7 +30,7 @@ public class SMG : Weapon
             case Rarity.Epic:
                 weaponName = "Epic SMG";
                 weaponSprite = epiWeaponSprite;
-                bulletDamage = Random.Range(epiMinBulDmg, epiMaxBulDmg);
+                bulletDamage = Mathf.RoundToInt(Random.Range(epiMinBulDmg, epiMaxBulDmg));
                 critChance = Random.Range(epiMinCritCha, epiMaxCritCha);
                 fireRate = Random.Range(epiMinFireRate, epiMaxFireRate);
                 break;
@@ -38,7 +38,7 @@ public class SMG : Weapon
             case Rarity.Legendary:
                 weaponName = "Legendary SMG";
                 weaponSprite = legWeaponSprite;
-                bulletDamage = Random.Range(legMinBulDmg, legMaxBulDmg);
+                bulletDamage = Mathf.RoundToInt(Random.Range(legMinBulDmg, legMaxBulDmg));
                 critChance = Random.Range(legMinCritCha, legMaxCritCha);
                 fireRate = Random.Range(legMinFireRate, legMaxFireRate);
                 break;

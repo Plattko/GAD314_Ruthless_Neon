@@ -21,7 +21,7 @@ public class Weapon : ScriptableObject
     protected int epicWeight = 10;
     protected int legendaryWeight = 5;
 
-    protected int bulletDamage;
+    protected float bulletDamage;
     [HideInInspector] public int fireRate;
     protected int critChance;
     
@@ -34,11 +34,11 @@ public class Weapon : ScriptableObject
     [SerializeField] protected Sprite legWeaponSprite;
 
     [Header("Bullet Damage")]
-    [SerializeField] protected int comMinBulDmg;
-    [SerializeField] protected int comMaxBulDmg;
-    [SerializeField] protected int rarMinBulDmg, rarMaxBulDmg;
-    [SerializeField] protected int epiMinBulDmg, epiMaxBulDmg;
-    [SerializeField] protected int legMinBulDmg, legMaxBulDmg;
+    [SerializeField] protected float comMinBulDmg;
+    [SerializeField] protected float comMaxBulDmg;
+    [SerializeField] protected float rarMinBulDmg, rarMaxBulDmg;
+    [SerializeField] protected float epiMinBulDmg, epiMaxBulDmg;
+    [SerializeField] protected float legMinBulDmg, legMaxBulDmg;
 
     [Header("Crit Chance")]
     [SerializeField] protected int comMinCritCha;

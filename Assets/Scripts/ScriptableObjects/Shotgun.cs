@@ -6,11 +6,11 @@ using UnityEngine;
 public class Shotgun : Weapon
 {
     private int spreadDegrees;
-    private int pelletCount;
+    [SerializeField] private int pelletCount = 6;
 
     [Header("Shotgun Variables")]
-    [SerializeField] private int minPelletCount;
-    [SerializeField] private int maxPelletCount;
+    //[SerializeField] private int minPelletCount;
+    //[SerializeField] private int maxPelletCount;
     [SerializeField] private int minSpreadDegrees;
     [SerializeField] private int maxSpreadDegrees;
 
@@ -23,7 +23,7 @@ public class Shotgun : Weapon
             case Rarity.Common:
                 weaponName = "Common Shotgun";
                 weaponSprite = comWeaponSprite;
-                bulletDamage = Random.Range(comMinBulDmg, comMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(comMinBulDmg, comMaxBulDmg), 0.5f);
                 critChance = Random.Range(comMinCritCha, comMaxCritCha);
                 fireRate = Random.Range(comMinFireRate, comMaxFireRate);
                 break;
@@ -31,7 +31,7 @@ public class Shotgun : Weapon
             case Rarity.Rare:
                 weaponName = "Rare Shotgun";
                 weaponSprite = rarWeaponSprite;
-                bulletDamage = Random.Range(rarMinBulDmg, rarMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(rarMinBulDmg, rarMaxBulDmg), 0.5f);
                 critChance = Random.Range(rarMinCritCha, rarMaxCritCha);
                 fireRate = Random.Range(rarMinFireRate, rarMaxFireRate);
                 break;
@@ -39,7 +39,7 @@ public class Shotgun : Weapon
             case Rarity.Epic:
                 weaponName = "Epic Shotgun";
                 weaponSprite = epiWeaponSprite;
-                bulletDamage = Random.Range(epiMinBulDmg, epiMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(epiMinBulDmg, epiMaxBulDmg), 0.5f);
                 critChance = Random.Range(epiMinCritCha, epiMaxCritCha);
                 fireRate = Random.Range(epiMinFireRate, epiMaxFireRate);
                 break;
@@ -47,7 +47,7 @@ public class Shotgun : Weapon
             case Rarity.Legendary:
                 weaponName = "Legendary Shotgun";
                 weaponSprite = legWeaponSprite;
-                bulletDamage = Random.Range(legMinBulDmg, legMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(legMinBulDmg, legMaxBulDmg), 0.5f);
                 critChance = Random.Range(legMinCritCha, legMaxCritCha);
                 fireRate = Random.Range(legMinFireRate, legMaxFireRate);
                 break;
@@ -56,7 +56,7 @@ public class Shotgun : Weapon
                 break;
         }
 
-        pelletCount = Random.Range(minPelletCount, maxPelletCount);
+        //pelletCount = Random.Range(minPelletCount, maxPelletCount);
         spreadDegrees = Random.Range(minSpreadDegrees, maxSpreadDegrees);
         curAmmo = Random.Range(minAmmoCount, maxAmmoCount);
 

@@ -29,7 +29,7 @@ public class SMGInfoPanel : MonoBehaviour
     [SerializeField] private Slider fireRateBar;
     [SerializeField] private Slider critChanceBar;
 
-    public void Initialise(Weapon.Rarity rarity, string weaponName, int dmg, int fireRate, int critChance, int ammo)
+    public void Initialise(Weapon.Rarity rarity, string weaponName, float dmg, int fireRate, int critChance, int ammo)
     {
         switch (rarity)
         {

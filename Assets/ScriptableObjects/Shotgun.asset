@@ -22,14 +22,14 @@ MonoBehaviour:
   rarWeaponSprite: {fileID: 21300000, guid: 649e404f287cfad4bb5572e2ae17d22c, type: 3}
   epiWeaponSprite: {fileID: 21300000, guid: e2f4f750c1e36294eb4fec321e71bb1e, type: 3}
   legWeaponSprite: {fileID: 21300000, guid: 415b60e476d2aa94cbafff63a3b40188, type: 3}
-  comMinBulDmg: 1
-  comMaxBulDmg: 2
+  comMinBulDmg: 1.5
+  comMaxBulDmg: 2.5
   rarMinBulDmg: 3
   rarMaxBulDmg: 4
-  epiMinBulDmg: 5
-  epiMaxBulDmg: 6
-  legMinBulDmg: 7
-  legMaxBulDmg: 8
+  epiMinBulDmg: 4.5
+  epiMaxBulDmg: 5.5
+  legMinBulDmg: 6
+  legMaxBulDmg: 7
   comMinCritCha: 2
   comMaxCritCha: 5
   rarMinCritCha: 6
@@ -38,17 +38,16 @@ MonoBehaviour:
   epiMaxCritCha: 15
   legMinCritCha: 16
   legMaxCritCha: 25
-  comMinFireRate: 50
-  comMaxFireRate: 100
-  rarMinFireRate: 101
-  rarMaxFireRate: 150
-  epiMinFireRate: 151
-  epiMaxFireRate: 200
-  legMinFireRate: 201
-  legMaxFireRate: 250
+  comMinFireRate: 100
+  comMaxFireRate: 150
+  rarMinFireRate: 151
+  rarMaxFireRate: 200
+  epiMinFireRate: 201
+  epiMaxFireRate: 250
+  legMinFireRate: 251
+  legMaxFireRate: 300
   minAmmoCount: 4
   maxAmmoCount: 12
-  minPelletCount: 3
-  maxPelletCount: 12
+  pelletCount: 6
   minSpreadDegrees: 20
   maxSpreadDegrees: 60

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoPanelPrefab: {fileID: 5419252429492875928, guid: 458025de7f1016442880efe588eec8a8, type: 3}
   bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
+  fireSFX: {fileID: 8300000, guid: 7853b0ccf9b30af408de1a3fd8f5e8ad, type: 3}
+  noAmmoSFX: {fileID: 8300000, guid: 65251d2efc2e21247bc218a2b1eef5f7, type: 3}
   isAutomatic: 1
   weaponName: 
   weaponSprite: {fileID: 0}

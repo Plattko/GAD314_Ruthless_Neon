@@ -88,9 +88,15 @@ public class Shotgun : Weapon
 
     public override void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
     {
-        // If the weapon has no ammo, do nothing
-        if (curAmmo <= 0) { return; }
+        // If the weapon has no ammo, play the no ammo SFX and do nothing
+        if (curAmmo <= 0)
+        {
+            SFXManager.instance.PlayAudioClip(noAmmoSFX, gunEndPos, 0.25f);
+            return;
+        }
 
+        // Play the fire sound effect
+        SFXManager.instance.PlayGunshotAudioClip(fireSFX, gunEndPos, 0.25f, true, curAmmo);
         // Reduce the weapon's ammo by 1
         curAmmo -= 1;
 

@@ -10,6 +10,9 @@ public class WeaponManager : MonoBehaviour
 
     [Header("Pistol")]
     [SerializeField] private Transform bulletPrefab;
+    [SerializeField] private AudioClip pistolFireSFX;
+    [SerializeField] private AudioClip pickUpWeaponSFX;
+    [SerializeField] private AudioClip dropWeaponSFX;
     [SerializeField] private float pistolDmg = 4f;
     
     [Header("Pickup Weapon")]
@@ -97,6 +100,8 @@ public class WeaponManager : MonoBehaviour
     //-------------------------------------------------------------
     private void FirePistol()
     {
+        // Play the fire sound effect
+        SFXManager.instance.PlayGunshotAudioClip(pistolFireSFX, gunEndPos, 0.25f, false);
         // Spawn the bullet
         Transform bullet = Instantiate(bulletPrefab, gunEndPos.position, Quaternion.identity);
         // Set the shoot direction
@@ -137,10 +142,15 @@ public class WeaponManager : MonoBehaviour
             DropWeapon(true);
         }
 
+        // Play the pick up SFX
+        SFXManager.instance.PlayAudioClip(pickUpWeaponSFX, transform, 0.25f);
+        // Get a reference to the weapon's script
         pickupWeapon = weapon.GetComponent<PickupWeapon>();
+        // Parent it to the player and update its position to be in the player's hands
         pickupWeapon.transform.parent = weaponHolder;
         pickupWeapon.transform.localScale = Vector3.one;
         pickupWeapon.transform.localPosition = new Vector3(0.72f, 0.25f, -0.25f);
+        // If the player is holding the pistol, swap to the picked up weapon
         if (equippedGun == EquippedGun.Pistol)
         {
             SwapWeapon();
@@ -160,6 +170,8 @@ public class WeaponManager : MonoBehaviour
             // Do nothing if the player is not holding the pickup weapon
             if (equippedGun == EquippedGun.Pistol) { return; }
 
+            // Play the drop SFX
+            SFXManager.instance.PlayAudioClip(dropWeaponSFX, transform, 0.25f);
             // Swap to the pistol
             SwapWeapon();
         }

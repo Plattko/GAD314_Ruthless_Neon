@@ -287,6 +287,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9fdd10a6-68e7-4669-b097-d40fa95e10fa
     m_ActionName: Player/DropWeapon[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2724977428060970025}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cfb2465c-c206-4ad8-abf3-adfd0615607f
+    m_ActionName: Player/Pause[/Keyboard/backquote]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -305,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6095974016079092240}
+  dashSFX: {fileID: 8300000, guid: 57c208972f8f76847883558fbc497f84, type: 3}
   moveSpeed: 10
   idleSlow: 0.9
   lastMoveDir: {x: 0, y: 0}
@@ -462,7 +479,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
-  pistolDmg: 1
+  pistolFireSFX: {fileID: 8300000, guid: 7853b0ccf9b30af408de1a3fd8f5e8ad, type: 3}
+  pickUpWeaponSFX: {fileID: 8300000, guid: a47102dc096fe824cb067703c296cbd5, type: 3}
+  dropWeaponSFX: {fileID: 8300000, guid: 3534961204998c742ba49d1612c01ce4, type: 3}
+  pistolDmg: 4
   aimPivot: {fileID: 2923225085251860809}
   gunEndPos: {fileID: 6355590338928329987}
   weaponHolder: {fileID: 7041506734111431148}

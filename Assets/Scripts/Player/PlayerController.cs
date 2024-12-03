@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private AudioClip dashSFX;
 
     private Vector3 moveInput;
     [SerializeField] private float moveSpeed = 3.0f;
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        SFXManager.instance.PlayAudioClip(dashSFX, transform, 1f, true);
         rb.velocity = moveInput * (dashDistance / dashDuration);
         // End of dash
         yield return new WaitForSeconds(dashDuration);
@@ -166,6 +168,14 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             weaponManager.DropWeapon(false);
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            GameManager.instance.TogglePause();
         }
     }
 }

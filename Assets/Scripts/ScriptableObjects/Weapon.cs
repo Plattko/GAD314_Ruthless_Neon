@@ -8,6 +8,8 @@ public class Weapon : ScriptableObject
     [Header("Universal Variables")]
     [SerializeField] protected RectTransform infoPanelPrefab;
     [SerializeField] protected Transform bulletPrefab;
+    [SerializeField] protected AudioClip fireSFX;
+    [SerializeField] protected AudioClip noAmmoSFX;
     public bool isAutomatic = false;
     
     public enum Rarity { Common, Rare, Epic, Legendary }

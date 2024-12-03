@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Health")]
+    [SerializeField] private AudioClip hurtSFX;
     [SerializeField] private int maxHealth = 3;
     private float curHealth;
     private bool isDead = false;
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         // Reduce health by the damage amount
         curHealth -= amount;
+        // Play the hurt SFX with randomised pitch
+        SFXManager.instance.PlayAudioClip(hurtSFX, transform, 1.1f, true);
 
         // What to do if the enemy dies
         if (curHealth <= 0 && !isDead)

@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private AudioClip pickUpWeaponSFX;
     [SerializeField] private AudioClip dropWeaponSFX;
     [SerializeField] private float pistolDmg = 4f;
+    [SerializeField] private float pistolFireRate = 90f;
     
     [Header("Pickup Weapon")]
     private float minDropForceX = 2f;
@@ -30,7 +31,8 @@ public class WeaponManager : MonoBehaviour
     private PickupWeapon pickupWeapon;
 
     [HideInInspector] public bool isShooting = false;
-    private float shotCooldown = 0f;
+    private float pistolShotCooldown = 0f;
+    private float pickupWeaponShotCooldown = 0f;
 
     [Header("Sprite & Animation")]
     private Animator animator;
@@ -100,6 +102,9 @@ public class WeaponManager : MonoBehaviour
     //-------------------------------------------------------------
     private void FirePistol()
     {
+        // Do nothing if the firing is on cooldown
+        if (Time.time < pistolShotCooldown) { return; }
+
         // Play the fire sound effect
         SFXManager.instance.PlayGunshotAudioClip(pistolFireSFX, gunEndPos, 0.25f, false);
         // Spawn the bullet
@@ -108,6 +113,8 @@ public class WeaponManager : MonoBehaviour
         Vector3 shootDir = (aimPos - transform.position).normalized;
         // Initialise the bullet
         bullet.GetComponent<Bullet>().Initialise(shootDir, pistolDmg);
+        // Set the shot cooldown based on the weapon's firerate
+        pistolShotCooldown = Time.time + (1f / (pistolFireRate / 60f));
         // Stop shooting so the pisol is semi-automatic
         StopShooting();
     }
@@ -118,12 +125,12 @@ public class WeaponManager : MonoBehaviour
     private void FirePickupWeapon()
     {
         // Do nothing if the firing is on cooldown
-        if (Time.time < shotCooldown) { return; }
+        if (Time.time < pickupWeaponShotCooldown) { return; }
 
         // Fire the weapon
         pickupWeapon.weaponStats.Fire(gunEndPos, aimPos, transform.position);
         // Set the shot cooldown based on the weapon's firerate
-        shotCooldown = Time.time + (1f / (pickupWeapon.weaponStats.fireRate / 60f));
+        pickupWeaponShotCooldown = Time.time + (1f / (pickupWeapon.weaponStats.fireRate / 60f));
         // Stop shooting if the weapon is not automatic
         if (!pickupWeapon.weaponStats.isAutomatic)
         {

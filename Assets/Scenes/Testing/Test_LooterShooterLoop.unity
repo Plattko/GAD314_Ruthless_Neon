@@ -225066,6 +225066,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2489853411602824403, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445863948841616334, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
+      propertyPath: pistolDmg
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445863948841616334, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
+      propertyPath: pistolFireRate
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5008563799151314272, guid: 1d98db306bed88d40a39b2e59d550eb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -178.09

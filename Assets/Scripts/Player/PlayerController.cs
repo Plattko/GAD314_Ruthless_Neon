@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] private WeaponManager weaponManager;
-    [SerializeField][Range(0f, 5f)] private float timeBetweenShots = 2f;
-    private float lastShotTime = 0f;
 
 
     [Header("Interaction")]
@@ -148,12 +146,6 @@ public class PlayerController : MonoBehaviour
         {
             weaponManager.StopShooting();
         }
-        
-        //if (context.performed && !isDashing && (Time.time - lastShotTime) >= timeBetweenShots)
-        //{
-        //    lastShotTime = Time.time;     
-        //    weaponManager.Shoot();
-        //}
     }
 
     public void OnSwapWeapon(InputAction.CallbackContext context)

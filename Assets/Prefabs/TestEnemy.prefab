@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860d68437049bcb4fb109942290098df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHurt: {fileID: 8300000, guid: 307775f2bb4adf945b0217acb2b26b57, type: 3}
+  hurtSFX: {fileID: 8300000, guid: 307775f2bb4adf945b0217acb2b26b57, type: 3}
   maxHealth: 20
   weaponSpawner: {fileID: 6119859860560788456}
 --- !u!114 &6119859860560788456

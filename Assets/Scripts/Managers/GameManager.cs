@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private RectTransform pauseMenu;
     [SerializeField] private RectTransform deathMenu;
+    [SerializeField] private RectTransform demoEndMenu;
     public static GameManager instance;
     private bool isGamePaused = false;
 
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
         pauseMenu.gameObject.SetActive(false);
         deathMenu.gameObject.SetActive(false);
+        demoEndMenu.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -58,6 +60,12 @@ public class GameManager : MonoBehaviour
     {
         // Reload the scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void EndDemo()
+    {
+        Time.timeScale = 0;
+        demoEndMenu.gameObject.SetActive(true);
     }
 
     public void GoToMainMenu()

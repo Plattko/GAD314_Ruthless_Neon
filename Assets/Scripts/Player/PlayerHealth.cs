@@ -25,13 +25,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         curHealth = maxHealth;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage(1);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.H))
+    //    {
+    //        TakeDamage(1);
+    //    }
+    //}
 
     public void TakeDamage(float amount)
     {

@@ -60,6 +60,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void GoToMainMenu()
+    {
+        // Load the Main Menu scene
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void ExitGame()
     {
         Application.Quit();

@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    [Header("Bullet properties")]
+    [Header("Bullet Properties")]
+    [SerializeField] private Rigidbody rb;
     [SerializeField][Range(1f, 100f)] private float speed = 10f; // Dynamic speed, can be set in the inspector
     [SerializeField] private int damage = 10;    // Dynamic damage, can be set in the inspector
     [SerializeField] private LayerMask playerLayer; // LayerMask to specify which layer the bullet can hit
 
-    void Start()
+    //void Start()
+    //{
+    //    // Move the bullet forward at the specified speed
+    //    if (rb != null)
+    //    {
+    //        rb.velocity = transform.up * speed;
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("No Rigidbody2D found on the bullet. Please add one.");
+    //    }
+    //}
+
+    public void Initialise(Vector3 shootDir)
     {
-        // Move the bullet forward at the specified speed
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = transform.up * speed;
-        }
-        else
-        {
-            Debug.LogError("No Rigidbody2D found on the bullet. Please add one.");
-        }
+        // Set velocity
+        rb.velocity = shootDir * speed;
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)

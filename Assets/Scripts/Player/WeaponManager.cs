@@ -226,6 +226,7 @@ public class WeaponManager : MonoBehaviour
                 animator.SetBool("isHoldingPistol", false);
                 animator.SetBool("isHoldingWeapon", true);
                 //weaponHUD.sprite = pistolSprite;                           // Turn back on after merge
+                //weaponHUD.sprite = pickupWeapon.weaponStats.uiSprite;
                 break;
 
             // Swapping from pickup weapon to pistol

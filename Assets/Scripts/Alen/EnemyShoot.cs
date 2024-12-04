@@ -6,8 +6,8 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] private Transform projectilePrefab;
     [SerializeField] private Transform firepoint;
-    [SerializeField] private GameObject projectile;
     [SerializeField] private LayerMask player;
 
     [Header("Weapon stats")]
@@ -18,6 +18,7 @@ public class EnemyShoot : MonoBehaviour
     public float initialShotFire = 0.5f;
 
     private Transform playerTransform;
+    private Vector3 shootDir;
     private bool canShoot = false;
     private bool isShooting = false; // To prevent multiple coroutines running at the same time
 
@@ -54,6 +55,7 @@ public class EnemyShoot : MonoBehaviour
         if (playerTransform != null)
         {
             Vector3 direction = (playerTransform.position - firepoint.position).normalized;
+            shootDir = direction;
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
@@ -71,7 +73,9 @@ public class EnemyShoot : MonoBehaviour
     {
         for (int i = 0; i < bulletsPerShot; i++)
         {
-            Instantiate(projectile, firepoint.position, firepoint.rotation);
+            //Instantiate(projectilePrefab, firepoint.position, firepoint.rotation);
+            Transform projectile = Instantiate(projectilePrefab, firepoint.position, Quaternion.identity);
+            projectile.GetComponent<EnemyBullet>().Initialise(shootDir);
             yield return new WaitForSeconds(0.2f); 
         }
         yield return new WaitForSeconds(fireRate); 
@@ -79,10 +83,10 @@ public class EnemyShoot : MonoBehaviour
     }
 
     public bool IsPlayerInRange()
-{
-    Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, player);
-    return hitColliders.Length > 0;
-}
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, player);
+        return hitColliders.Length > 0;
+    }
 
     private void OnDrawGizmosSelected()
     {

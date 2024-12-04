@@ -19,9 +19,12 @@ public class PatrolPath : MonoBehaviour
 
     void Start()
     {
-        transform.position = waypoints[waypointIndex].transform.position;
-
         shoot = GetComponent<EnemyShoot>();
+
+        if (waypoints.Length > 0)
+        {
+            transform.position = waypoints[waypointIndex].transform.position;
+        }
     }
     void Update()
     {
@@ -97,6 +100,9 @@ public class PatrolPath : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, waypoints[waypointIndex].position);
+        if (waypoints.Length > 0)
+        {
+            Gizmos.DrawLine(transform.position, waypoints[waypointIndex].position);
+        }
     }
 }

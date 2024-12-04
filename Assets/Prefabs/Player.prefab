@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 816980768475621178}
   - component: {fileID: 7129638772908552153}
   - component: {fileID: 4324401199001518647}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: NearbyWeaponCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,6 +483,7 @@ MonoBehaviour:
   pickUpWeaponSFX: {fileID: 8300000, guid: a47102dc096fe824cb067703c296cbd5, type: 3}
   dropWeaponSFX: {fileID: 8300000, guid: 3534961204998c742ba49d1612c01ce4, type: 3}
   pistolDmg: 4
+  pistolFireRate: 200
   aimPivot: {fileID: 2923225085251860809}
   gunEndPos: {fileID: 6355590338928329987}
   weaponHolder: {fileID: 7041506734111431148}

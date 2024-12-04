@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class PatrolPath : MonoBehaviour
 {
     [SerializeField] private Transform[] waypoints;
-
+    [SerializeField] private Transform spriteTransform;
     [SerializeField] private float moveSpeed = 2f;
 
     private int waypointIndex = 0;
@@ -46,9 +46,9 @@ public class PatrolPath : MonoBehaviour
         if ((moveDirection.x > 0 && !isFacingRight) || (moveDirection.x < 0 && isFacingRight))
         {
             isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
+            Vector3 localScale = spriteTransform.localScale;
             localScale.x *= -1f;
-            transform.localScale = localScale;
+            spriteTransform.localScale = localScale;
         }
     }
 

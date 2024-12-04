@@ -57,16 +57,19 @@ public class EnemyBullet : MonoBehaviour
         // Ignore collision with other enemies
         if (other.gameObject.layer == LayerMask.NameToLayer(enemyLayer)) { return; }
 
+        // Ignore collision with the player if they are mid-dash
+        PlayerController playerController = other.GetComponent<PlayerController>();
+        if (playerController != null && playerController.isDashing) { return; }
+
+        // Deal damage if it hit a damageable object
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {
             // Hit a damageable object
             damageable.TakeDamage(damage);
-            Destroy(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        // Destroy the bullet
+        Destroy(gameObject);
     }
 }

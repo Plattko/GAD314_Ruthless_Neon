@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
 
     private bool canDash = true;
-    private bool isDashing = false;
+    [HideInInspector] public bool isDashing = false;
     [SerializeField] private float dashDistance = 10f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1.0f;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a636ec2b6b90e42bfc9bc32583a735, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
+  hudIcon: {fileID: 1697855786, guid: e3f54d483bfc3364e87a02be048215ef, type: 3}
   infoPanelPrefab: {fileID: 5419252429492875928, guid: 458025de7f1016442880efe588eec8a8, type: 3}
   bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
   fireSFX: {fileID: 8300000, guid: 7853b0ccf9b30af408de1a3fd8f5e8ad, type: 3}

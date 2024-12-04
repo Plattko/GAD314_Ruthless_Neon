@@ -24202,7 +24202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &133223592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -215421,11 +215421,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2021185836}
   - {fileID: 453181807}
   - {fileID: 1197978837}
   - {fileID: 2061111424}
   - {fileID: 1442518012}
+  - {fileID: 2021185836}
   - {fileID: 318191720}
   - {fileID: 133223592}
   m_Father: {fileID: 0}
@@ -341596,7 +341596,7 @@ GameObject:
   - component: {fileID: 2021185838}
   - component: {fileID: 2021185837}
   m_Layer: 0
-  m_Name: GunSwitchIcon
+  m_Name: EquippedWeaponUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

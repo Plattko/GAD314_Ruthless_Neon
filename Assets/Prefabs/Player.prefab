@@ -513,6 +513,7 @@ MonoBehaviour:
   pistol: {fileID: 2688228688177844863}
   isShooting: 0
   weaponHUD: {fileID: 0}
+  pistolHudIcon: {fileID: -1909070215, guid: e3f54d483bfc3364e87a02be048215ef, type: 3}
 --- !u!1 &3828564558504890077
 GameObject:
   m_ObjectHideFlags: 0

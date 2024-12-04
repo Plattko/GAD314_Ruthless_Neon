@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Pickup Weapon", menuName = "Weapons/PickupWeapon", order = 0)]
 public class Weapon : ScriptableObject
 {
     [Header("Universal Variables")]
+    public Sprite hudIcon;
     [SerializeField] protected RectTransform infoPanelPrefab;
     [SerializeField] protected Transform bulletPrefab;
     [SerializeField] protected AudioClip fireSFX;

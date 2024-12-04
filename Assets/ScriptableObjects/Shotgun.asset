@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a556c5d90737f43923c0b8d18976ed, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
+  hudIcon: {fileID: -1561425776, guid: e3f54d483bfc3364e87a02be048215ef, type: 3}
   infoPanelPrefab: {fileID: 4649742829041843070, guid: 1cfb8eab8d5fe9f41884e070d7ecaf5a, type: 3}
   bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
   fireSFX: {fileID: 8300000, guid: b4438a5c667dc274a88696c33dab82cd, type: 3}

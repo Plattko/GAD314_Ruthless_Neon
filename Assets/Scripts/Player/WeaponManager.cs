@@ -35,12 +35,9 @@ public class WeaponManager : MonoBehaviour
     private float pickupWeaponShotCooldown = 0f;
 
     [Header("Sprite & Animation")]
-    private Animator animator;
-    private Sprite pistolSprite;
-    private Sprite weaponSprite;
-
-    [Header("Image Reference")]
     [SerializeField] private Image weaponHUD;
+    [SerializeField] private Sprite pistolHudIcon;
+    private Animator animator;
 
     private void FixedUpdate()
     {
@@ -162,6 +159,8 @@ public class WeaponManager : MonoBehaviour
         {
             SwapWeapon();
         }
+        // Set the weapon HUD sprite to the new weapon's HUD icon
+        weaponHUD.sprite = pickupWeapon.weaponStats.hudIcon;
     }
 
     public void DropWeapon(bool isReplacingWeapon)
@@ -225,8 +224,7 @@ public class WeaponManager : MonoBehaviour
                 pickupWeapon.GetComponent<SpriteRenderer>().enabled = true;
                 animator.SetBool("isHoldingPistol", false);
                 animator.SetBool("isHoldingWeapon", true);
-                //weaponHUD.sprite = pistolSprite;                           // Turn back on after merge
-                //weaponHUD.sprite = pickupWeapon.weaponStats.uiSprite;
+                weaponHUD.sprite = pickupWeapon.weaponStats.hudIcon;
                 break;
 
             // Swapping from pickup weapon to pistol
@@ -236,7 +234,7 @@ public class WeaponManager : MonoBehaviour
                 pistol.GetComponent<SpriteRenderer>().enabled = true;
                 animator.SetBool("isHoldingPistol", true);
                 animator.SetBool("isHoldingWeapon", false);
-                //weaponHUD.sprite = weaponSprite;                           // Turn back on after merge
+                weaponHUD.sprite = pistolHudIcon;
                 break;
 
             default:

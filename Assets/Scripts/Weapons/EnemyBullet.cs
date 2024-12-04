@@ -8,7 +8,8 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField][Range(1f, 100f)] private float speed = 10f; // Dynamic speed, can be set in the inspector
     [SerializeField] private int damage = 10;    // Dynamic damage, can be set in the inspector
-    [SerializeField] private LayerMask playerLayer; // LayerMask to specify which layer the bullet can hit
+    //[SerializeField] private LayerMask playerLayer; // LayerMask to specify which layer the bullet can hit
+    [SerializeField] private string enemyLayer = "Enemy";
 
     //void Start()
     //{
@@ -50,4 +51,22 @@ public class EnemyBullet : MonoBehaviour
     //        Destroy(gameObject);
     //    }
     //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Ignore collision with other enemies
+        if (other.gameObject.layer == LayerMask.NameToLayer(enemyLayer)) { return; }
+
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            // Hit a damageable object
+            damageable.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }

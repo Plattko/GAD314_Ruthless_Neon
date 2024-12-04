@@ -68,7 +68,7 @@ public class PatrolPath : MonoBehaviour
                 {
                 waypointIndex += 1;
                 
-                Debug.Log("Waypoint" +  waypointIndex);
+                //Debug.Log("Waypoint" +  waypointIndex);
             }
 
         }
@@ -87,12 +87,12 @@ public class PatrolPath : MonoBehaviour
             if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
             {
                 waypointIndex++;
-                Debug.Log("Increment");
+                //Debug.Log("Increment");
 
                 if (waypointIndex >= waypoints.Length)
                 {
                     waypointIndex = 0;
-                    Debug.Log("Reset Waypoint");
+                    //Debug.Log("Reset Waypoint");
                 }
             }
         }

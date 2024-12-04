@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6119859860560788456}
   - component: {fileID: 6563329285273125037}
   - component: {fileID: 8077879814730865535}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TestEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1188031480348150307}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3389059413400422909}
   - component: {fileID: 4470305811083476930}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

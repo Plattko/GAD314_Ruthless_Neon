@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [Header("Behaviour")]
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private int playerLayer;
+    [SerializeField] private string playerLayer = "Player";
     [SerializeField] private int bulletLayer;
     [SerializeField] private float moveSpeed = 20f;
     [SerializeField] private float destroyDelay = 5f;
@@ -32,8 +32,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Ignore collision with the player and other bullets
-        if (other.gameObject.layer == playerLayer || other.gameObject.layer == bulletLayer) { return; }
+        // Ignore collision with the player
+        if (other.gameObject.layer == LayerMask.NameToLayer(playerLayer)) { return; }
         
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)

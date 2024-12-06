@@ -6,20 +6,19 @@ public class Bullet : MonoBehaviour
 {
     [Header("Behaviour")]
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private int playerLayer;
+    [SerializeField] private string playerLayer = "Player";
     [SerializeField] private int bulletLayer;
     [SerializeField] private float moveSpeed = 20f;
-    [SerializeField] private float damage = 1f;
     [SerializeField] private float destroyDelay = 5f;
-    private Vector3 shootDir;
+    private float damage = 1f;
 
     [Header("Sprite")]
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    public void Initialise(Vector3 shootDir)
+    public void Initialise(Vector3 shootDir, float _damage)
     {
-        // Set direction
-        this.shootDir = shootDir;
+        // Set damage
+        damage = _damage;
         // Set rotation
         if (shootDir.x < 0f)
         {
@@ -33,19 +32,18 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Ignore collision with the player and other bullets
-        if (other.gameObject.layer == playerLayer || other.gameObject.layer == bulletLayer) { return; }
-        
-        Damageable damageable = other.GetComponent<Damageable>();
+        // Ignore collision with the player
+        if (other.gameObject.layer == LayerMask.NameToLayer(playerLayer)) { return; }
+
+        // Deal damage if it hit a damageable object
+        IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {
             // Hit a damageable object
-            damageable.Damage(damage);
-            Destroy(gameObject);
+            damageable.TakeDamage(damage);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        // Destroy the bullet
+        Destroy(gameObject);
     }
 }

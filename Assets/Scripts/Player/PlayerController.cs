@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private AudioClip dashSFX;
 
     private Vector3 moveInput;
     [SerializeField] private float moveSpeed = 3.0f;
@@ -16,13 +17,17 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
 
     private bool canDash = true;
-    private bool isDashing = false;
+    [HideInInspector] public bool isDashing = false;
     [SerializeField] private float dashDistance = 10f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1.0f;
 
     [Header("Shooting")]
     [SerializeField] private WeaponManager weaponManager;
+
+
+    [Header("Interaction")]
+    [SerializeField] private NearbyWeaponCheck nearbyWeaponCheck;
 
     [Header("Sprite & Animation")]
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -64,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        SFXManager.instance.PlayAudioClip(dashSFX, transform, 1f, true);
         rb.velocity = moveInput * (dashDistance / dashDuration);
         // End of dash
         yield return new WaitForSeconds(dashDuration);
@@ -99,14 +105,14 @@ public class PlayerController : MonoBehaviour
             weaponHolder.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (curSpeed > 0.01f)
-        {
-            pistolSprite.enabled = true;
-        }
-        else
-        {
-            pistolSprite.enabled = false;
-        }
+        //if (curSpeed > 0.01f)                         // TODO: Find more elegant solution
+        //{
+        //    pistolSprite.enabled = true;
+        //}
+        //else
+        //{
+        //    pistolSprite.enabled = false;
+        //}
     }
 
     //-------------------------------------------------------------
@@ -127,9 +133,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed && !isDashing)
+        //if (context.performed && !isDashing)
+        //{
+        //    weaponManager.Shoot();
+        //}
+
+        if (context.started)
         {
-            weaponManager.Shoot();
+            weaponManager.StartShooting();
+        }
+        else if (context.canceled)
+        {
+            weaponManager.StopShooting();
         }
     }
 
@@ -138,6 +153,30 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             weaponManager.SwapWeapon();
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            weaponManager.PickUpWeapon(nearbyWeaponCheck.SelectNearestGun());
+        }
+    }
+
+    public void OnDropWeapon(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            weaponManager.DropWeapon(false);
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            GameManager.instance.TogglePause();
         }
     }
 }

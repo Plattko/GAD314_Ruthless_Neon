@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a636ec2b6b90e42bfc9bc32583a735, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
+  hudIcon: {fileID: 1697855786, guid: e3f54d483bfc3364e87a02be048215ef, type: 3}
+  infoPanelPrefab: {fileID: 5419252429492875928, guid: 458025de7f1016442880efe588eec8a8, type: 3}
+  bulletPrefab: {fileID: 5606584169045002196, guid: 80676ce5f1dd14744aa40aee72e3e5e3, type: 3}
+  fireSFX: {fileID: 8300000, guid: 7853b0ccf9b30af408de1a3fd8f5e8ad, type: 3}
+  noAmmoSFX: {fileID: 8300000, guid: 65251d2efc2e21247bc218a2b1eef5f7, type: 3}
+  isAutomatic: 1
   weaponName: 
   weaponSprite: {fileID: 0}
+  fireRate: 0
   comWeaponSprite: {fileID: 21300000, guid: 832ec8f9ff87682498939e906548e1ff, type: 3}
   rarWeaponSprite: {fileID: 21300000, guid: f3d31f86ec71e9b4790743fdd8e98f2a, type: 3}
   epiWeaponSprite: {fileID: 21300000, guid: fdb223f1c8a55d94bb4b95d4dd2110a8, type: 3}
   legWeaponSprite: {fileID: 21300000, guid: a8fb24309f583334bb0fa8870df335ea, type: 3}
-  bulletSprite: {fileID: 21300000, guid: 6e07eef218a155b4ba6560d63e0d1c79, type: 3}
-  comMinBulDmg: 3
+  comMinBulDmg: 4
   comMaxBulDmg: 5
   rarMinBulDmg: 6
   rarMaxBulDmg: 8
@@ -35,13 +41,13 @@ MonoBehaviour:
   epiMaxCritCha: 15
   legMinCritCha: 16
   legMaxCritCha: 25
-  comMinFireRate: 200
-  comMaxFireRate: 299
-  rarMinFireRate: 300
-  rarMaxFireRate: 399
-  epiMinFireRate: 400
-  epiMaxFireRate: 499
-  legMinFireRate: 500
+  comMinFireRate: 250
+  comMaxFireRate: 300
+  rarMinFireRate: 301
+  rarMaxFireRate: 400
+  epiMinFireRate: 401
+  epiMaxFireRate: 500
+  legMinFireRate: 501
   legMaxFireRate: 600
   minAmmoCount: 15
   maxAmmoCount: 60

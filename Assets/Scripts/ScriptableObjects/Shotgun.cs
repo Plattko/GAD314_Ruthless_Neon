@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Shotgun", menuName = "Weapons/Shotgun", order = 1)]
-public class Shotgun : PickupWeapon
+public class Shotgun : Weapon
 {
-    [Header("Shotgun-specific Stats")]
-    private float spreadDegrees;
-    private int pelletCount;
+    private int spreadDegrees;
+    [SerializeField] private int pelletCount = 6;
 
-    [SerializeField] private float minSpreadDegrees;
-    [SerializeField] private float maxSpreadDegrees;
-    [SerializeField] private int minPelletCount;
-    [SerializeField] private int maxPelletCount;
+    [Header("Shotgun Variables")]
+    //[SerializeField] private int minPelletCount;
+    //[SerializeField] private int maxPelletCount;
+    [SerializeField] private int minSpreadDegrees;
+    [SerializeField] private int maxSpreadDegrees;
 
     public override void CreateWeapon()
     {
@@ -23,7 +23,7 @@ public class Shotgun : PickupWeapon
             case Rarity.Common:
                 weaponName = "Common Shotgun";
                 weaponSprite = comWeaponSprite;
-                bulletDamage = Random.Range(comMinBulDmg, comMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(comMinBulDmg, comMaxBulDmg), 0.5f);
                 critChance = Random.Range(comMinCritCha, comMaxCritCha);
                 fireRate = Random.Range(comMinFireRate, comMaxFireRate);
                 break;
@@ -31,7 +31,7 @@ public class Shotgun : PickupWeapon
             case Rarity.Rare:
                 weaponName = "Rare Shotgun";
                 weaponSprite = rarWeaponSprite;
-                bulletDamage = Random.Range(rarMinBulDmg, rarMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(rarMinBulDmg, rarMaxBulDmg), 0.5f);
                 critChance = Random.Range(rarMinCritCha, rarMaxCritCha);
                 fireRate = Random.Range(rarMinFireRate, rarMaxFireRate);
                 break;
@@ -39,7 +39,7 @@ public class Shotgun : PickupWeapon
             case Rarity.Epic:
                 weaponName = "Epic Shotgun";
                 weaponSprite = epiWeaponSprite;
-                bulletDamage = Random.Range(epiMinBulDmg, epiMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(epiMinBulDmg, epiMaxBulDmg), 0.5f);
                 critChance = Random.Range(epiMinCritCha, epiMaxCritCha);
                 fireRate = Random.Range(epiMinFireRate, epiMaxFireRate);
                 break;
@@ -47,7 +47,7 @@ public class Shotgun : PickupWeapon
             case Rarity.Legendary:
                 weaponName = "Legendary Shotgun";
                 weaponSprite = legWeaponSprite;
-                bulletDamage = Random.Range(legMinBulDmg, legMaxBulDmg);
+                bulletDamage = Snapping.Snap(Random.Range(legMinBulDmg, legMaxBulDmg), 0.5f);
                 critChance = Random.Range(legMinCritCha, legMaxCritCha);
                 fireRate = Random.Range(legMinFireRate, legMaxFireRate);
                 break;
@@ -56,9 +56,9 @@ public class Shotgun : PickupWeapon
                 break;
         }
 
+        //pelletCount = Random.Range(minPelletCount, maxPelletCount);
         spreadDegrees = Random.Range(minSpreadDegrees, maxSpreadDegrees);
-        pelletCount = Random.Range(minPelletCount, maxPelletCount);
-        ammoCount = Random.Range(minAmmoCount, maxAmmoCount);
+        curAmmo = Random.Range(minAmmoCount, maxAmmoCount);
 
         Debug.Log("Weapon name: " + weaponName);
         Debug.Log("Rarity: " + rarity);
@@ -67,6 +67,50 @@ public class Shotgun : PickupWeapon
         Debug.Log("Fire rate: " + fireRate);
         Debug.Log("Bullet spread (degrees): " + spreadDegrees);
         Debug.Log("Pellet count: " + pelletCount);
-        Debug.Log("Ammo count: " + ammoCount);
+        Debug.Log("Ammo count: " + curAmmo);
+    }
+
+    public override void InitialiseInfoPanel(RectTransform infoPanel)
+    {
+        // Get a reference to the Shotgun info panel script
+        ShotgunInfoPanel shotgunInfoPanel = infoPanel.GetComponent<ShotgunInfoPanel>();
+        // Initialise it with the Shotgun's stats
+        shotgunInfoPanel.Initialise(rarity, weaponName, bulletDamage, pelletCount, spreadDegrees, fireRate, critChance, curAmmo);
+    }
+
+    public override void UpdateInfoPanelAmmo(RectTransform infoPanel)
+    {
+        // Get a reference to the Shotgun info panel script
+        ShotgunInfoPanel shotgunInfoPanel = infoPanel.GetComponent<ShotgunInfoPanel>();
+        // Initialise it with the Shotgun's stats
+        shotgunInfoPanel.UpdateAmmo(curAmmo);
+    }
+
+    public override void Fire(Transform gunEndPos, Vector3 aimPos, Vector3 playerPos)
+    {
+        // If the weapon has no ammo, play the no ammo SFX and do nothing
+        if (curAmmo <= 0)
+        {
+            SFXManager.instance.PlayAudioClip(noAmmoSFX, gunEndPos, 0.25f);
+            return;
+        }
+
+        // Play the fire sound effect
+        SFXManager.instance.PlayGunshotAudioClip(fireSFX, gunEndPos, 0.25f, true, curAmmo);
+        // Reduce the weapon's ammo by 1
+        curAmmo -= 1;
+
+        for (int i = 0; i < pelletCount; i++)
+        {
+            // Spawn the bullet
+            Transform bullet = Instantiate(bulletPrefab, gunEndPos.position, Quaternion.identity);
+
+            // Set the initial shoot direction
+            Vector3 shootDir = (aimPos - playerPos).normalized;
+            // Randomly rotate the shoot direction by the weapon's spread
+            shootDir = Quaternion.AngleAxis(Random.Range(-spreadDegrees / 2, spreadDegrees / 2), Vector3.up) * shootDir;
+            // Initialise the bullet
+            bullet.GetComponent<Bullet>().Initialise(shootDir, bulletDamage);
+        }
     }
 }

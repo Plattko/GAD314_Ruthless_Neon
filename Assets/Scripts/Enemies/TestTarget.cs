@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestTarget : MonoBehaviour
 {
-    [SerializeField] private Damageable damageable;
+    //[SerializeField] private Damageable damageable;
     [SerializeField] private int minHealth = 3;
     [SerializeField] private int maxHealth = 5;
     private float curHealth;
@@ -14,15 +14,15 @@ public class TestTarget : MonoBehaviour
         curHealth = Random.Range(minHealth, maxHealth);
     }
 
-    private void OnEnable()
-    {
-        damageable.onDamaged += TakeDamage;
-    }
+    //private void OnEnable()
+    //{
+    //    damageable.onDamaged += TakeDamage;
+    //}
 
-    private void OnDisable()
-    {
-        damageable.onDamaged -= TakeDamage;
-    }
+    //private void OnDisable()
+    //{
+    //    damageable.onDamaged -= TakeDamage;
+    //}
 
     private void TakeDamage(float amount)
     {
